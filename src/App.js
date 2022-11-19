@@ -16,11 +16,24 @@ const SavedVideos = () => {}
 const NotFound = () => {}
 const VideoItemDetails = () => {}
 
+const dataFetchRequestUrls = {
+  login: 'https://apis.ccbp.in/login',
+  home: 'https://apis.ccbp.in/videos/all?search=',
+  trending: 'https://apis.ccbp.in/videos/trending',
+  gaming: 'https://apis.ccbp.in/videos/gaming',
+  videoItemDetails: 'https://apis.ccbp.in/videos/',
+}
+
 class App extends Component {
   state = {
+    username: '',
+    password: '',
+    showPassword: false,
     videosList: [],
+    savedVideoList: [],
     searchQuery: '',
     isUserLoggedIn: false,
+    isDarkTheme: false,
   }
 
   render() {
