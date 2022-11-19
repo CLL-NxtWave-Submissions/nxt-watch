@@ -65,7 +65,7 @@ class App extends Component {
         />
         <RouteWithAuthCheck
           exact
-          path="/videos/{id}"
+          path="/videos/:id"
           component={VideoItemDetails}
         />
         <RouteWithAuthCheck exact path="/not-found" component={NotFound} />
