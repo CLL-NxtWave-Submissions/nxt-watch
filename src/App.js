@@ -24,6 +24,19 @@ const dataFetchRequestUrls = {
   videoItemDetails: 'https://apis.ccbp.in/videos/',
 }
 
+const RouteWithAuthCheck = props => {
+  const authTokenForReqAuthorization = Cookies.get('nxtWatchAuthToken')
+  let routingComponentBasedOnAuthToken = null
+
+  if (authTokenForReqAuthorization === undefined) {
+    routingComponentBasedOnAuthToken = <Redirect to="/login" />
+  } else {
+    routingComponentBasedOnAuthToken = <Route {...props} />
+  }
+
+  return routingComponentBasedOnAuthToken
+}
+
 class App extends Component {
   state = {
     username: '',
@@ -42,12 +55,20 @@ class App extends Component {
     return (
       <Switch>
         <Route exact path="/login" component={Login} />
-        <Route exact path="/" component={Home} />
-        <Route exact path="/trending" component={Trending} />
-        <Route exact path="/gaming" component={Gaming} />
-        <Route exact path="/saved-videos" component={SavedVideos} />
-        <Route exact path="/videos/{id}" component={VideoItemDetails} />
-        <Route exact path="/not-found" component={NotFound} />
+        <RouteWithAuthCheck exact path="/" component={Home} />
+        <RouteWithAuthCheck exact path="/trending" component={Trending} />
+        <RouteWithAuthCheck exact path="/gaming" component={Gaming} />
+        <RouteWithAuthCheck
+          exact
+          path="/saved-videos"
+          component={SavedVideos}
+        />
+        <RouteWithAuthCheck
+          exact
+          path="/videos/{id}"
+          component={VideoItemDetails}
+        />
+        <RouteWithAuthCheck exact path="/not-found" component={NotFound} />
         <Redirect path="/not-found" />
       </Switch>
     )
