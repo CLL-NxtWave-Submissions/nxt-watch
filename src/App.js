@@ -8,6 +8,47 @@ import styled from 'styled-components'
 
 import './App.css'
 
+/* Syled Components - Start */
+
+/* For JSX elements in Login component - Start */
+
+const LoginBgContainerLightTheme = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  background-color: #ffffff;
+`
+
+const LoginBgContainerDarkTheme = styled(LoginBgContainerLightTheme)`
+  background-color: #1e293b;
+`
+
+const LoginFormContainerLightTheme = styled.form`
+  border-radius: 0.6rem;
+  box-shadow: 0 0 0.5rem 0 #f9f9f9;
+  background-color: #ffffff;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`
+
+const LoginFormContainerDarkTheme = styled(LoginFormContainerLightTheme)`
+  background-color: #0f0f0f;
+`
+
+const BrandLogo = styled.img`
+  height: 3rem;
+  width: 3rem;
+  margin-bottom: 1rem;
+`
+
+/* For JSX elements in Login component - End */
+
+/* Syled Components - End */
+
 const Login = () => {}
 const Home = () => {}
 const Trending = () => {}
