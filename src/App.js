@@ -8,6 +8,16 @@ import styled from 'styled-components'
 
 import './App.css'
 
+// Urls for requesting data necessary to render
+// content UI for different routes.
+const dataFetchRequestUrls = {
+  login: 'https://apis.ccbp.in/login',
+  home: 'https://apis.ccbp.in/videos/all?search=',
+  trending: 'https://apis.ccbp.in/videos/trending',
+  gaming: 'https://apis.ccbp.in/videos/gaming',
+  videoItemDetails: 'https://apis.ccbp.in/videos/',
+}
+
 /* Syled Components - Start */
 
 /* For JSX elements in Login component - Start */
@@ -105,6 +115,8 @@ const LoginFormSubmitButton = styled.button`
 
 /* Syled Components - End */
 
+/* Composable React Components - Start */
+
 const Login = () => {}
 const Home = () => {}
 const Trending = () => {}
@@ -113,14 +125,9 @@ const SavedVideos = () => {}
 const NotFound = () => {}
 const VideoItemDetails = () => {}
 
-const dataFetchRequestUrls = {
-  login: 'https://apis.ccbp.in/login',
-  home: 'https://apis.ccbp.in/videos/all?search=',
-  trending: 'https://apis.ccbp.in/videos/trending',
-  gaming: 'https://apis.ccbp.in/videos/gaming',
-  videoItemDetails: 'https://apis.ccbp.in/videos/',
-}
-
+// Wrapper component to check user authentication
+// and accordingly render Redirect component to
+// navigate to login route or the requested route.
 const RouteWithAuthCheck = props => {
   const authTokenForReqAuthorization = Cookies.get('nxtWatchAuthToken')
   let routingComponentBasedOnAuthToken = null
@@ -134,6 +141,7 @@ const RouteWithAuthCheck = props => {
   return routingComponentBasedOnAuthToken
 }
 
+/* App component - Root of the component tree */
 class App extends Component {
   state = {
     username: '',
