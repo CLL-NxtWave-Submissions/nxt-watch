@@ -45,6 +45,62 @@ const BrandLogo = styled.img`
   margin-bottom: 1rem;
 `
 
+const LoginFormInputContainer = styled.div`
+  width: 100%;
+  margin: 0.5rem 0;
+  display: flex;
+  flex-direction: column;
+`
+
+const LoginFormInputLabelLightTheme = styled.label`
+  color: #94a3b8;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: 'Roboto';
+  margin: 0;
+  margin-bottom: 0.25rem;
+`
+
+const LoginFormInputLabelDarkTheme = styled(LoginFormInputLabelLightTheme)`
+  color: #ffffff;
+`
+
+const LoginFormInput = styled.input`
+  border-radius: 0.4rem;
+  border: 0.1rem solid #e2e8f0;
+  padding: 0.75rem 1.25rem;
+  color: #94a3b8;
+  font-size: 1.2rem;
+  font-family: 'Roboto';
+  margin: 0;
+`
+
+const ShowPasswordInputContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 0;
+`
+
+const ShowPasswordInput = styled.input`
+  border-radius: 0.4rem;
+  border: 0.1rem solid #616e7c;
+  margin: 0;
+  margin-right: 0.5rem;
+`
+
+const ShowPasswordInputLabelLightTheme = styled.label`
+  color: #000000;
+  font-size: 1.2rem;
+  font-family: 'Roboto';
+`
+
+const LoginFormSubmitButton = styled.button`
+  background-color: #4f46e5;
+  border-radius: 0.8rem;
+  padding: 1.5rem;
+`
+
 /* For JSX elements in Login component - End */
 
 /* Syled Components - End */
