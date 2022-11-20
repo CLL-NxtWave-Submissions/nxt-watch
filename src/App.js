@@ -29,9 +29,17 @@ const AppContext = React.createContext({
   onPasswordChange: () => {},
   showPassword: false,
   onShowPasswordChange: () => {},
-  isLoggedIn: false,
+  isUserLoggedIn: false,
   onLogout: () => {},
   onLoginFormSubmit: () => {},
+  videosList: [],
+  savedVideoList: [],
+  onSaveVideo: () => {},
+  onUnsaveVideo: () => {},
+  searchQuery: '',
+  onSearchSubmit: () => {},
+  isDarkTheme: false,
+  onThemeChange: () => {},
 })
 
 /* Syled Components - Start */
