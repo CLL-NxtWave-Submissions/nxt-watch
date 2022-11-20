@@ -1,4 +1,4 @@
-import {Component} from 'react'
+import React, {Component} from 'react'
 import {Switch, Route, Redirect} from 'react-router-dom'
 import {formatDistanceToNow} from 'date-fns'
 import Cookies from 'js-cookie'
@@ -17,6 +17,22 @@ const dataFetchRequestUrls = {
   gaming: 'https://apis.ccbp.in/videos/gaming',
   videoItemDetails: 'https://apis.ccbp.in/videos/',
 }
+
+/* App context with managed state and methods,
+   to be updated with context.Provider in a root
+   component, which can then be accessible through
+   context.Consumer in different child components */
+const AppContext = React.createContext({
+  username: '',
+  onUsernameChange: () => {},
+  password: '',
+  onPasswordChange: () => {},
+  showPassword: false,
+  onShowPasswordChange: () => {},
+  isLoggedIn: false,
+  onLogout: () => {},
+  onLoginFormSubmit: () => {},
+})
 
 /* Syled Components - Start */
 
@@ -117,7 +133,8 @@ const LoginFormSubmitButton = styled.button`
 
 /* Composable React Components - Start */
 
-const Login = () => {}
+const Login = props => {}
+
 const Home = () => {}
 const Trending = () => {}
 const Gaming = () => {}
