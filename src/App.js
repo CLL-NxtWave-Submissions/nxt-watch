@@ -129,6 +129,12 @@ const ShowPasswordInputLabelLightTheme = styled.label`
   font-family: 'Roboto';
 `
 
+const ShowPasswordInputLabelDarkTheme = styled(
+  ShowPasswordInputLabelLightTheme,
+)`
+  color: #ffffff;
+`
+
 const LoginFormSubmitButton = styled.button`
   background-color: #4f46e5;
   border-radius: 0.8rem;
