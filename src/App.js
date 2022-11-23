@@ -186,27 +186,58 @@ class App extends Component {
   }
 
   render() {
-    const {videosList, searchQuery, isUserLoggedIn} = this.state
+    const {
+      username,
+      password,
+      showPassword,
+      videosList,
+      savedVideoList,
+      searchQuery,
+      isUserLoggedIn,
+      isDarkTheme,
+    } = this.state
 
     return (
-      <Switch>
-        <Route exact path="/login" component={Login} />
-        <RouteWithAuthCheck exact path="/" component={Home} />
-        <RouteWithAuthCheck exact path="/trending" component={Trending} />
-        <RouteWithAuthCheck exact path="/gaming" component={Gaming} />
-        <RouteWithAuthCheck
-          exact
-          path="/saved-videos"
-          component={SavedVideos}
-        />
-        <RouteWithAuthCheck
-          exact
-          path="/videos/:id"
-          component={VideoItemDetails}
-        />
-        <RouteWithAuthCheck exact path="/not-found" component={NotFound} />
-        <Redirect path="/not-found" />
-      </Switch>
+      <AppContext.Provider
+        value={{
+          username,
+          onUsernameChange: () => {},
+          password,
+          onPasswordChange: () => {},
+          showPassword,
+          onShowPasswordChange: () => {},
+          isUserLoggedIn,
+          onLogout: () => {},
+          onLoginFormSubmit: () => {},
+          videosList,
+          savedVideoList,
+          onSaveVideo: () => {},
+          onUnsaveVideo: () => {},
+          searchQuery,
+          onSearchSubmit: () => {},
+          isDarkTheme,
+          onThemeChange: () => {},
+        }}
+      >
+        <Switch>
+          <Route exact path="/login" component={Login} />
+          <RouteWithAuthCheck exact path="/" component={Home} />
+          <RouteWithAuthCheck exact path="/trending" component={Trending} />
+          <RouteWithAuthCheck exact path="/gaming" component={Gaming} />
+          <RouteWithAuthCheck
+            exact
+            path="/saved-videos"
+            component={SavedVideos}
+          />
+          <RouteWithAuthCheck
+            exact
+            path="/videos/:id"
+            component={VideoItemDetails}
+          />
+          <RouteWithAuthCheck exact path="/not-found" component={NotFound} />
+          <Redirect path="/not-found" />
+        </Switch>
+      </AppContext.Provider>
     )
   }
 }
