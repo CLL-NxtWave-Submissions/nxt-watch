@@ -147,7 +147,29 @@ const LoginFormSubmitButton = styled.button`
 
 /* Composable React Components - Start */
 
-const Login = props => {}
+const Login = () => (
+  <AppContext.Consumer>
+    {appContextData => {
+      const {
+        username,
+        password,
+        showPassword,
+        onUsernameChange,
+        onPasswordChange,
+        onShowPasswordChange,
+        onLoginFormSubmit,
+        isDarkTheme,
+        onThemeChange,
+      } = appContextData
+
+      return isDarkTheme ? (
+        <LoginBgContainerDarkTheme />
+      ) : (
+        <LoginBgContainerLightTheme />
+      )
+    }}
+  </AppContext.Consumer>
+)
 
 const Home = () => {}
 const Trending = () => {}
