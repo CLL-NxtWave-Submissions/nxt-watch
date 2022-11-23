@@ -164,40 +164,54 @@ const Login = () => (
 
       return isDarkTheme ? (
         <LoginBgContainerDarkTheme>
-            <LoginFormContainerDarkTheme>
+            <LoginFormContainerDarkTheme onSubmit={onLoginFormSubmit}>
                 <BrandLogo src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png" />
                 <LoginFormInputContainer>
                         <LoginFormInputLabelDarkTheme htmlFor="input-username">
                             USERNAME
                         </LoginFormInputLabelDarkTheme>
-                        <LoginFormInput id="input-username" type="text" />
+                        <LoginFormInput id="input-username" type="text" placeholder="Username" value={username} onChange={onUsernameChange}  />
                 </LoginFormInputContainer>
 
                 <LoginFormInputContainer>
                         <LoginFormInputLabelDarkTheme htmlFor="input-password">
                             PASSWORD
                         </LoginFormInputLabelDarkTheme>
-                        <LoginFormInput id="input-password" type={showPassword ? "text" : "password"} />
+                        <LoginFormInput id="input-password" type={showPassword ? "text" : "password"}  placeholder="Password" value={password} onChange={onPasswordChange}  />
                 </LoginFormInputContainer>
+
+                <ShowPasswordInputContainer>
+                    <ShowPasswordInput id="show-password" type="checkbox" onChange={onShowPasswordChange} />
+                    <ShowPasswordInputLabelDarkTheme>Show Password</ShowPasswordInputLabelDarkTheme>
+                </ShowPasswordInputContainer>
+
+                <LoginFormSubmitButton type="submit">Login</LoginFormSubmitButton>
             </LoginFormContainerDarkTheme>
         </LoginBgContainerDarkTheme>
       ) : (
         <LoginBgContainerLightTheme>
-            <LoginFormContainerLightTheme>
+            <LoginFormContainerLightTheme onSubmit={onLoginFormSubmit}>
                 <BrandLogo src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png" />
                 <LoginFormInputContainer>
                         <LoginFormInputLabelLightTheme htmlFor="input-username">
                             USERNAME
                         </LoginFormInputLabelLightTheme>
-                        <LoginFormInput id="input-username" type="text" />
+                        <LoginFormInput id="input-username" type="text" placeholder="Username" value={username} onChange={onUsernameChange} />
                 </LoginFormInputContainer>
 
                 <LoginFormInputContainer>
                         <LoginFormInputLabelLightTheme htmlFor="input-password">
                             PASSWORD
                         </LoginFormInputLabelLightTheme>
-                        <LoginFormInput id="input-password" type={showPassword ? "text" : "password"} />
+                        <LoginFormInput id="input-password" type={showPassword ? "text" : "password"}  placeholder="Password" value={password} onChange={onPasswordChange}  />
                 </LoginFormInputContainer>
+
+                <ShowPasswordInputContainer>
+                    <ShowPasswordInput id="show-password" type="checkbox" onChange={onShowPasswordChange} />
+                    <ShowPasswordInputLabelLightTheme htmlFor="show-password">Show Password</ShowPasswordInputLabelLightTheme>
+                </ShowPasswordInputContainer>
+
+                <LoginFormSubmitButton type="submit">Login</LoginFormSubmitButton>
             </LoginFormContainerLightTheme>
         <LoginBgContainerLightTheme />
       )
