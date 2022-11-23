@@ -163,12 +163,20 @@ const Login = () => (
       } = appContextData
 
       return isDarkTheme ? (
-        <LoginBgContainerDarkTheme />
+        <LoginBgContainerDarkTheme>
+            <LoginFormContainerDarkTheme>
+                <BrandLogo src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png" />
+            </LoginFormContainerDarkTheme>
+        </LoginBgContainerDarkTheme>
       ) : (
+        <LoginBgContainerLightTheme>
+            <LoginFormContainerLightTheme>
+                <BrandLogo src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png" />
+            </LoginFormContainerLightTheme>
         <LoginBgContainerLightTheme />
       )
     }}
-  </AppContext.Consumer>
+  <AppContext.Consumer />
 )
 
 const Home = () => {}
