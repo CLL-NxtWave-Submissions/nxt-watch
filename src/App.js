@@ -69,10 +69,37 @@ const LoginFormContainerLightTheme = styled.form`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
+
+  @media (min-width: 450px) {
+    width: 95%;
+  }
+
+  @media (min-width: 500px) {
+    width: 90%;
+  }
 
   @media (min-width: 768px) {
-    width: 35%;
+    width: 60%;
     padding: 2.5rem;
+  }
+
+  @media (min-width: 892px) {
+    width: 48%;
+  }
+
+  @media (min-width: 992px) {
+    width: 45%;
+  }
+
+  //   @media (min-width: )
+
+  @media (min-width: 1192px) {
+    width: 40%;
+  }
+
+  @media (min-width: 1245px) {
+    width: 35%;
   }
 `
 
