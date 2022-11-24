@@ -52,25 +52,33 @@ const LoginBgContainerLightTheme = styled.div`
   align-items: center;
   padding: 1.5rem;
   background-color: #ffffff;
+  height: 100%;
+  min-height: 100vh;
 `
 
 const LoginBgContainerDarkTheme = styled(LoginBgContainerLightTheme)`
-  background-color: #1e293b;
+  background-color: #313131;
 `
 
 const LoginFormContainerLightTheme = styled.form`
   border-radius: 0.6rem;
-  box-shadow: 0 0 0.5rem 0 #f9f9f9;
+  box-shadow: 0 0 0.5rem 0.5rem #f4f4f4;
   background-color: #ffffff;
   padding: 1rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  @media (min-width: 768px) {
+    width: 35%;
+    padding: 2.5rem;
+  }
 `
 
 const LoginFormContainerDarkTheme = styled(LoginFormContainerLightTheme)`
   background-color: #0f0f0f;
+  box-shadow: none;
 `
 
 const BrandLogo = styled.img`
@@ -288,7 +296,7 @@ class App extends Component {
     savedVideoList: [],
     searchQuery: '',
     isUserLoggedIn: false,
-    isDarkTheme: false,
+    isDarkTheme: true,
   }
 
   render() {
