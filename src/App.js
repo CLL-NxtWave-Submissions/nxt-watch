@@ -64,7 +64,7 @@ const LoginFormContainerLightTheme = styled.form`
   border-radius: 0.6rem;
   box-shadow: 0 0 0.5rem 0.5rem #f4f4f4;
   background-color: #ffffff;
-  padding: 1rem;
+  padding: 3rem 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -82,9 +82,9 @@ const LoginFormContainerDarkTheme = styled(LoginFormContainerLightTheme)`
 `
 
 const BrandLogo = styled.img`
-  height: 3rem;
-  width: 3rem;
-  margin-bottom: 1rem;
+  height: 3.5rem;
+  width: 12rem;
+  margin-bottom: 3.5rem;
 `
 
 const LoginFormInputContainer = styled.div`
@@ -100,6 +100,7 @@ const LoginFormInputLabelLightTheme = styled.label`
   font-weight: 600;
   font-family: 'Roboto';
   margin: 0;
+  margin-top: 0.5rem;
   margin-bottom: 0.25rem;
 `
 
@@ -121,7 +122,9 @@ const ShowPasswordInputContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  align-self: flex-start;
   margin-left: 0;
+  margin-top: 0.35rem;
 `
 
 const ShowPasswordInput = styled.input`
@@ -129,6 +132,8 @@ const ShowPasswordInput = styled.input`
   border: 0.1rem solid #616e7c;
   margin: 0;
   margin-right: 0.5rem;
+  width: 1rem;
+  height: 1rem;
 `
 
 const ShowPasswordInputLabelLightTheme = styled.label`
@@ -144,9 +149,17 @@ const ShowPasswordInputLabelDarkTheme = styled(
 `
 
 const LoginFormSubmitButton = styled.button`
-  background-color: #4f46e5;
-  border-radius: 0.8rem;
-  padding: 1.5rem;
+  color: #ffffff;
+  background-color: #3b82f6;
+  border-radius: 0.6rem;
+  padding: 0.8rem;
+  align-self: stretch;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: 550;
+  margin-top: 2.5rem;
 `
 
 /* For JSX elements in Login component - End */
@@ -296,7 +309,7 @@ class App extends Component {
     savedVideoList: [],
     searchQuery: '',
     isUserLoggedIn: false,
-    isDarkTheme: true,
+    isDarkTheme: false,
   }
 
   render() {
