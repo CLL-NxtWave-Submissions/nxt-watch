@@ -451,7 +451,7 @@ class App extends Component {
             component={VideoItemDetails}
           />
           <RouteWithAuthCheck exact path="/not-found" component={NotFound} />
-          <Redirect path="/not-found" />
+          <Redirect to="/not-found" />
         </Switch>
       </AppContext.Provider>
     )
