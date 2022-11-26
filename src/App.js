@@ -302,12 +302,12 @@ const Login = () => (
   </AppContext.Consumer>
 )
 
-const Home = () => {}
-const Trending = () => {}
-const Gaming = () => {}
-const SavedVideos = () => {}
-const NotFound = () => {}
-const VideoItemDetails = () => {}
+const Home = () => <h1>Home</h1>
+const Trending = () => <h1>Trending</h1>
+const Gaming = () => <h1>Gaming</h1>
+const SavedVideos = () => <h1>Saved Videos</h1>
+const NotFound = () => <h1>Not Found</h1>
+const VideoItemDetails = () => <h1>Video Item Details</h1>
 
 // Wrapper component to check user authentication
 // and accordingly render Redirect component to
