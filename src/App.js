@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Switch, Route, Redirect} from 'react-router-dom'
+import {Switch, Route, Redirect, withRouter} from 'react-router-dom'
 import {formatDistanceToNow} from 'date-fns'
 import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
@@ -91,8 +91,6 @@ const LoginFormContainerLightTheme = styled.form`
   @media (min-width: 992px) {
     width: 45%;
   }
-
-  //   @media (min-width: )
 
   @media (min-width: 1192px) {
     width: 40%;
@@ -207,7 +205,6 @@ const Login = () => (
         onShowPasswordChange,
         onLoginFormSubmit,
         isDarkTheme,
-        onThemeChange,
       } = appContextData
 
       return isDarkTheme ? (
@@ -245,6 +242,7 @@ const Login = () => (
                 id="show-password"
                 type="checkbox"
                 onChange={onShowPasswordChange}
+                checked={showPassword}
               />
               <ShowPasswordInputLabelDarkTheme>
                 Show Password
@@ -289,6 +287,7 @@ const Login = () => (
                 id="show-password"
                 type="checkbox"
                 onChange={onShowPasswordChange}
+                checked={showPassword}
               />
               <ShowPasswordInputLabelLightTheme htmlFor="show-password">
                 Show Password
@@ -332,11 +331,64 @@ class App extends Component {
     username: '',
     password: '',
     showPassword: false,
+    loginErrorMsg: '',
     videosList: [],
     savedVideoList: [],
     searchQuery: '',
     isUserLoggedIn: false,
     isDarkTheme: false,
+  }
+
+  onUsernameChange = usernameChangeEvent => {
+    const updatedUsername = usernameChangeEvent.target.value
+
+    this.setState({
+      username: updatedUsername,
+    })
+  }
+
+  onPasswordChange = passwordChangeEvent => {
+    const updatedPassword = passwordChangeEvent.target.value
+
+    this.setState({
+      password: updatedPassword,
+    })
+  }
+
+  onShowPasswordChange = showPasswordChangeEvent => {
+    const showPasswordInputElement = showPasswordChangeEvent.target
+    const updatedShowPasswordState = !showPasswordInputElement.checked
+
+    this.setState({
+      showPassword: updatedShowPasswordState,
+    })
+  }
+
+  onLoginFormSubmit = async loginSubmitEvent => {
+    loginSubmitEvent.preventDefault()
+
+    const {username, password} = this.state
+    const loginCredentials = {username, password}
+
+    const loginRequestOptions = {
+      method: 'POST',
+      body: JSON.stringify(loginCredentials),
+    }
+
+    const loginUrl = dataFetchRequestUrls.login
+    const loginResponse = await fetch(loginUrl, loginRequestOptions)
+    const responseData = await loginResponse.json()
+
+    if (loginResponse.ok) {
+      const jwtToken = responseData.jwt_token
+      Cookies.set('nxtWatchAuthToken', jwtToken, {expires: 30})
+
+      const {history} = this.props
+      history.replace('/')
+    } else {
+      const loginErrorMsg = responseData.error_msg
+      this.setState({loginErrorMsg})
+    }
   }
 
   render() {
@@ -349,6 +401,7 @@ class App extends Component {
       searchQuery,
       isUserLoggedIn,
       isDarkTheme,
+      loginErrorMsg,
     } = this.state
 
     return (
@@ -371,6 +424,7 @@ class App extends Component {
           onSearchSubmit: () => {},
           isDarkTheme,
           onThemeChange: () => {},
+          loginErrorMsg,
         }}
       >
         <Switch>
@@ -396,4 +450,4 @@ class App extends Component {
   }
 }
 
-export default App
+export default withRouter(App)
