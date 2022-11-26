@@ -18,6 +18,14 @@ const dataFetchRequestUrls = {
   videoItemDetails: 'https://apis.ccbp.in/videos/',
 }
 
+// Possible state of a fetch API request
+const apiRequestStates = {
+  initial: 'INITIAL',
+  success: 'SUCCESS',
+  failure: 'FAILURE',
+  loading: 'LOADING',
+}
+
 /* App context with managed state and methods,
    to be updated with context.Provider in a root
    component, which can then be accessible through
