@@ -416,14 +416,14 @@ class App extends Component {
       <AppContext.Provider
         value={{
           username,
-          onUsernameChange: () => {},
+          onUsernameChange: this.onUsernameChange,
           password,
-          onPasswordChange: () => {},
+          onPasswordChange: this.onPasswordChange,
           showPassword,
-          onShowPasswordChange: () => {},
+          onShowPasswordChange: this.onShowPasswordChange,
           isUserLoggedIn,
           onLogout: () => {},
-          onLoginFormSubmit: () => {},
+          onLoginFormSubmit: this.onLoginFormSubmit,
           videosList,
           savedVideoList,
           onSaveVideo: () => {},
