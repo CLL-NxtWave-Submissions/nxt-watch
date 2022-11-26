@@ -365,7 +365,7 @@ class App extends Component {
 
   onShowPasswordChange = showPasswordChangeEvent => {
     const showPasswordInputElement = showPasswordChangeEvent.target
-    const updatedShowPasswordState = !showPasswordInputElement.checked
+    const updatedShowPasswordState = showPasswordInputElement.checked
 
     this.setState({
       showPassword: updatedShowPasswordState,
