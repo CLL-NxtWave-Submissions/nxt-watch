@@ -298,7 +298,10 @@ const Login = () => {
         ) : (
           <LoginBgContainerLightTheme>
             <LoginFormContainerLightTheme onSubmit={onLoginFormSubmit}>
-              <BrandLogo src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png" />
+              <BrandLogo
+                src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
+                alt="website logo"
+              />
               <LoginFormInputContainer>
                 <LoginFormInputLabelLightTheme htmlFor="input-username">
                   USERNAME
