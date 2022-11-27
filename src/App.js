@@ -185,6 +185,7 @@ const LoginErrorMsg = styled.p`
   font-size: 1rem;
   font-family: 'Roboto';
   color: #ff0000;
+  align-self: flex-start;
 `
 
 const LoginFormSubmitButton = styled.button`
@@ -202,6 +203,22 @@ const LoginFormSubmitButton = styled.button`
 `
 
 /* For JSX elements in Login component - End */
+
+/* For common JSX elements rendered across components - Start */
+
+const NxtWatchHeader = styled.div`
+  width: 100%;
+  height: 15vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  padding: 1rem;
+`
+
+// const NxtWatchLogo
+
+/* For common JSX elements rendered across components - End */
 
 /* Syled Components - End */
 
@@ -229,7 +246,10 @@ const Login = () => {
         return isDarkTheme ? (
           <LoginBgContainerDarkTheme>
             <LoginFormContainerDarkTheme onSubmit={onLoginFormSubmit}>
-              <BrandLogo src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png" />
+              <BrandLogo
+                src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png"
+                alt="website logo"
+              />
               <LoginFormInputContainer>
                 <LoginFormInputLabelDarkTheme htmlFor="input-username">
                   USERNAME
