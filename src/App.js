@@ -333,10 +333,10 @@ const Login = () => {
 
   if (nxtWatchAuthToken === undefined) {
     // Not logged in or auth token expired
-    finalUI = redirectToHome
+    finalUI = loginUI
   } else {
     // already logged in with a valid auth token
-    finalUI = loginUI
+    finalUI = redirectToHome
   }
 
   return finalUI
