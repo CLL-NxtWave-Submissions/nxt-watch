@@ -181,6 +181,12 @@ const ShowPasswordInputLabelDarkTheme = styled(
   color: #ffffff;
 `
 
+const LoginErrorMsg = styled.p`
+  font-size: 1rem;
+  font-family: 'Roboto';
+  color: #ff0000;
+`
+
 const LoginFormSubmitButton = styled.button`
   color: #ffffff;
   background-color: #3b82f6;
@@ -212,6 +218,7 @@ const Login = () => {
           username,
           password,
           showPassword,
+          loginErrorMsg,
           onUsernameChange,
           onPasswordChange,
           onShowPasswordChange,
@@ -261,6 +268,10 @@ const Login = () => {
                 </ShowPasswordInputLabelDarkTheme>
               </ShowPasswordInputContainer>
 
+              {loginErrorMsg !== '' && (
+                <LoginErrorMsg>{loginErrorMsg}</LoginErrorMsg>
+              )}
+
               <LoginFormSubmitButton type="submit">Login</LoginFormSubmitButton>
             </LoginFormContainerDarkTheme>
           </LoginBgContainerDarkTheme>
@@ -305,6 +316,10 @@ const Login = () => {
                   Show Password
                 </ShowPasswordInputLabelLightTheme>
               </ShowPasswordInputContainer>
+
+              {loginErrorMsg !== '' && (
+                <LoginErrorMsg>{loginErrorMsg}</LoginErrorMsg>
+              )}
 
               <LoginFormSubmitButton type="submit">Login</LoginFormSubmitButton>
             </LoginFormContainerLightTheme>
