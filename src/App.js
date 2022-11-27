@@ -225,7 +225,7 @@ const NxtWatchHeader = styled.div`
 /* Composable React Components - Start */
 
 const Login = () => {
-  const nxtWatchAuthToken = Cookies.get('nxtWatchAuthToken')
+  const nxtWatchAuthToken = Cookies.get('jwt_token')
 
   const redirectToHome = <Redirect to="/" />
   const loginUI = (
@@ -373,7 +373,7 @@ const VideoItemDetails = () => <h1>Video Item Details</h1>
 // and accordingly render Redirect component to
 // navigate to login route or the requested route.
 const RouteWithAuthCheck = props => {
-  const authTokenForReqAuthorization = Cookies.get('nxtWatchAuthToken')
+  const authTokenForReqAuthorization = Cookies.get('jwt_token')
   let routingComponentBasedOnAuthToken = null
 
   if (authTokenForReqAuthorization === undefined) {
@@ -441,7 +441,7 @@ class App extends Component {
 
     if (loginResponse.ok) {
       const jwtToken = responseData.jwt_token
-      Cookies.set('nxtWatchAuthToken', jwtToken, {expires: 30})
+      Cookies.set('jwt_token', jwtToken, {expires: 30})
 
       const {history} = this.props
       history.replace('/')
