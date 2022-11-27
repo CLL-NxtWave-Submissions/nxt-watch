@@ -365,7 +365,18 @@ const Login = () => {
   return finalUI
 }
 
-const Home = () => <h1>Home</h1>
+const getAPIResponse = async (requestUrl, authToken) => {
+  const requestOptions = {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${authToken}`,
+    },
+  }
+  const apiResponse = await fetch(requestUrl, requestOptions)
+  return apiResponse
+}
+
+const Home = props => {}
 const Trending = () => <h1>Trending</h1>
 const Gaming = () => <h1>Gaming</h1>
 const SavedVideos = () => <h1>Saved Videos</h1>
