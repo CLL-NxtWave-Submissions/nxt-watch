@@ -268,11 +268,11 @@ const Login = () => {
                 </ShowPasswordInputLabelDarkTheme>
               </ShowPasswordInputContainer>
 
-              {loginErrorMsg !== '' && (
-                <LoginErrorMsg>{loginErrorMsg}</LoginErrorMsg>
-              )}
-
               <LoginFormSubmitButton type="submit">Login</LoginFormSubmitButton>
+
+              {loginErrorMsg !== '' && (
+                <LoginErrorMsg>*{loginErrorMsg}</LoginErrorMsg>
+              )}
             </LoginFormContainerDarkTheme>
           </LoginBgContainerDarkTheme>
         ) : (
@@ -317,11 +317,11 @@ const Login = () => {
                 </ShowPasswordInputLabelLightTheme>
               </ShowPasswordInputContainer>
 
-              {loginErrorMsg !== '' && (
-                <LoginErrorMsg>{loginErrorMsg}</LoginErrorMsg>
-              )}
-
               <LoginFormSubmitButton type="submit">Login</LoginFormSubmitButton>
+
+              {loginErrorMsg !== '' && (
+                <LoginErrorMsg>*{loginErrorMsg}</LoginErrorMsg>
+              )}
             </LoginFormContainerLightTheme>
           </LoginBgContainerLightTheme>
         )
