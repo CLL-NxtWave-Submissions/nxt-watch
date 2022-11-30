@@ -5,6 +5,11 @@ import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
 import Popup from 'reactjs-popup'
 
+import {
+  dataFetchRequestUrls,
+  apiRequestStates,
+} from './components/common-module'
+
 import Login from './components/Login'
 import Home from './components/Home'
 import Trending from './components/Trending'
@@ -16,24 +21,6 @@ import VideoItemDetails from './components/VideoItemDetails'
 import AppContext from './components/context/AppContext'
 
 import './App.css'
-
-// Urls for requesting data necessary to render
-// content UI for different routes.
-const dataFetchRequestUrls = {
-  login: 'https://apis.ccbp.in/login',
-  home: 'https://apis.ccbp.in/videos/all?search=',
-  trending: 'https://apis.ccbp.in/videos/trending',
-  gaming: 'https://apis.ccbp.in/videos/gaming',
-  videoItemDetails: 'https://apis.ccbp.in/videos/',
-}
-
-// Possible state of a fetch API request
-const apiRequestStates = {
-  initial: 'INITIAL',
-  success: 'SUCCESS',
-  failure: 'FAILURE',
-  loading: 'LOADING',
-}
 
 // Wrapper component to check user authentication
 // and accordingly render Redirect component to
