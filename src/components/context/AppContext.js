@@ -18,12 +18,8 @@ const AppContext = React.createContext({
   savedVideoList: [],
   onSaveVideo: () => {},
   onUnsaveVideo: () => {},
-  searchQuery: '',
-  onSearchSubmit: () => {},
   isDarkTheme: false,
   onThemeChange: () => {},
-  apiRequestStates: {},
-  apiRequestState: '',
   updatePartialState: () => {},
 })
 

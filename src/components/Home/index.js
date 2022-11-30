@@ -9,11 +9,38 @@ import AppContext from '../context/AppContext'
 
 export default class Home extends Component {
   state = {
-    apiRequestState: apiRequestStates.initial,
+    apiRequestState: apiRequestStates.loading,
     searchQuery: '',
+    videosList: [],
   }
 
-  componentDidMount() {}
+  async componentDidMount() {
+    const {searchQuery} = this.state
+    const nxtWatchAuthToken = Cookies.get('jwt_token')
+    const homeAPIRequestUrl = `${dataFetchRequestUrls.home}${searchQuery}`
+
+    const homeAPIResponse = await this.getAPIResponse(
+      homeAPIRequestUrl,
+      nxtWatchAuthToken,
+    )
+
+    let updatedHomeComponentState = {}
+
+    if (homeAPIResponse.ok) {
+      const homeAPiResponseData = await homeAPIResponse.json()
+      const homeVideosList = homeAPiResponseData.videos
+      updatedHomeComponentState = {
+        apiRequestState: apiRequestStates.success,
+        videosList: homeVideosList,
+      }
+    } else {
+      updatedHomeComponentState = {
+        apiRequestState: apiRequestStates.failure,
+      }
+    }
+
+    this.setState(updatedHomeComponentState)
+  }
 
   getAPIResponse = async (requestUrl, authToken) => {
     const requestOptions = {
@@ -28,70 +55,43 @@ export default class Home extends Component {
 
   onSearchSubmit = () => {}
 
+  renderLoader = () => (
+    <div className="loader-container" data-testid="loader">
+      <Loader type="ThreeDots" color="#ffffff" height="50" width="50" />
+    </div>
+  )
+
+  renderEmptySearchUI = () => <h1>Empty Search</h1>
+
+  renderVideosList = videoDataList => (
+    <ul>
+      {videoDataList.map(videoDataListItem => (
+        <li key={videoDataListItem.id}>{videoDataListItem.title}</li>
+      ))}
+    </ul>
+  )
+
+  renderDataFetchFailureUI = () => <h1>Error fetching home videos data !</h1>
+
   render() {
     return (
       <AppContext.Consumer>
         {async appContextData => {
-          const {
-            isDarkTheme,
-            searchQuery,
-            onSearchSubmit,
-            apiRequestState,
-            updatePartialState,
-            videosList,
-            apiRequestStates,
-          } = appContextData
+          const {isDarkTheme} = appContextData
 
+          const {apiRequestState, searchQuery, videosList} = this.state
           let finalUI = null
 
-          if (apiRequestState !== apiRequestStates.loading) {
-            updatePartialState({apiRequestState: apiRequestStates.loading})
-            finalUI = (
-              <div className="loader-container" data-testid="loader">
-                <Loader
-                  type="ThreeDots"
-                  color="#ffffff"
-                  height="50"
-                  width="50"
-                />
-              </div>
-            )
-          } else if (apiRequestState === apiRequestStates.loading) {
-            const jwtToken = Cookies.get('jwt_token')
-            const homeAPIRequestUrl = `dataFetchRequestUrls.home${searchQuery}`
-
-            const homeAPIResponse = await this.getAPIResponse(
-              homeAPIRequestUrl,
-              jwtToken,
-            )
-
-            if (homeAPIResponse.ok) {
-              const homeVideosData = await homeAPIResponse.json()
-              console.log(homeVideosData)
-              updatePartialState({
-                apiRequestState: apiRequestStates.success,
-                videosList: homeVideosData.videos,
-              })
-            } else {
-              updatePartialState({
-                apiRequestState: apiRequestStates.failure,
-              })
-            }
-
-            finalUI = (
-              <div className="loader-container" data-testid="loader">
-                <Loader
-                  type="ThreeDots"
-                  color="#ffffff"
-                  height="50"
-                  width="50"
-                />
-              </div>
-            )
+          if (apiRequestState === apiRequestStates.loading) {
+            finalUI = this.renderLoader()
           } else if (apiRequestState === apiRequestStates.success) {
-            finalUI = <h1>Success</h1>
+            if (videosList.length === 0) {
+              finalUI = this.renderEmptySearchUI()
+            } else {
+              finalUI = this.renderVideosList(videosList)
+            }
           } else if (apiRequestState === apiRequestStates.failure) {
-            finalUI = <h1>Error fetching home videos data !</h1>
+            finalUI = this.renderDataFetchFailureUI()
           }
 
           return finalUI
