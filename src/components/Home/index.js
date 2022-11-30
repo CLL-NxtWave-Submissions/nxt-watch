@@ -2,13 +2,15 @@ import {Component} from 'react'
 import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
 
+import {dataFetchRequestUrls, apiRequestStates} from '../common-module'
 import {NxtWatchHeader} from '../common-styled-components/styledComponents'
 
 import AppContext from '../context/AppContext'
 
 export default class Home extends Component {
   state = {
-    apiRequestState: '',
+    apiRequestState: apiRequestStates.initial,
+    searchQuery: '',
   }
 
   componentDidMount() {}
@@ -23,6 +25,8 @@ export default class Home extends Component {
     const apiResponse = await fetch(requestUrl, requestOptions)
     return apiResponse
   }
+
+  onSearchSubmit = () => {}
 
   render() {
     return (
