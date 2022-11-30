@@ -5,10 +5,7 @@ import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
 import Popup from 'reactjs-popup'
 
-import {
-  dataFetchRequestUrls,
-  apiRequestStates,
-} from './components/common-module'
+import {dataFetchRequestUrls} from './components/common-module'
 
 import Login from './components/Login'
 import Home from './components/Home'
@@ -49,7 +46,6 @@ class App extends Component {
     savedVideoList: [],
     isUserLoggedIn: false,
     isDarkTheme: false,
-    apiRequestState: apiRequestStates.initial,
   }
 
   onUsernameChange = usernameChangeEvent => {
@@ -117,7 +113,6 @@ class App extends Component {
       isUserLoggedIn,
       isDarkTheme,
       loginErrorMsg,
-      apiRequestState,
     } = this.state
 
     return (
@@ -136,12 +131,9 @@ class App extends Component {
           savedVideoList,
           onSaveVideo: () => {},
           onUnsaveVideo: () => {},
-          searchQuery,
-          onSearchSubmit: () => {},
           isDarkTheme,
           onThemeChange: () => {},
           loginErrorMsg,
-          apiRequestState,
           updatePartialState: this.updatePartialState,
         }}
       >
