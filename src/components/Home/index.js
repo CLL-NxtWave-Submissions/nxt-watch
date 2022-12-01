@@ -26,7 +26,21 @@ export default class Home extends Component {
 
     let updatedHomeComponentState = {}
 
-    if (homeAPIResponse.ok) {
+    // Decode the content of cloned response, for
+    // later check on successful request
+    const responseArrayBuffer = await homeAPIResponse.clone().arrayBuffer()
+    const responseUint8ArrayView = new Uint8Array(responseArrayBuffer)
+    const responseStringCharArr = []
+    responseUint8ArrayView.forEach(arrayElement => {
+      const stringChar = String.fromCharCode(arrayElement)
+      responseStringCharArr.push(stringChar)
+    })
+
+    if (
+      homeAPIResponse.ok &&
+      responseStringCharArr[0] ===
+        '{' /* Check if object was returned, opposed to error html page with response starting with '<' */
+    ) {
       const homeAPiResponseData = await homeAPIResponse.json()
       const homeVideosList = homeAPiResponseData.videos
       updatedHomeComponentState = {
@@ -57,7 +71,7 @@ export default class Home extends Component {
 
   renderLoader = () => (
     <div className="loader-container" data-testid="loader">
-      <Loader type="ThreeDots" color="#ffffff" height="50" width="50" />
+      <Loader type="ThreeDots" color="#3b82f6" height="50" width="50" />
     </div>
   )
 
