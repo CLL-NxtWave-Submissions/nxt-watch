@@ -76,7 +76,7 @@ export default class Home extends Component {
   render() {
     return (
       <AppContext.Consumer>
-        {async appContextData => {
+        {appContextData => {
           const {isDarkTheme} = appContextData
 
           const {apiRequestState, searchQuery, videosList} = this.state
