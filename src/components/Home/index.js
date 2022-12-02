@@ -3,7 +3,7 @@ import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
 
 import {dataFetchRequestUrls, apiRequestStates} from '../common-module'
-import {NxtWatchHeader} from '../common-styled-components/styledComponents'
+import Header from '../Header'
 
 import AppContext from '../context/AppContext'
 
@@ -108,7 +108,12 @@ export default class Home extends Component {
             finalUI = this.renderDataFetchFailureUI()
           }
 
-          return finalUI
+          return (
+            <>
+              <Header />
+              {finalUI}
+            </>
+          )
         }}
       </AppContext.Consumer>
     )
