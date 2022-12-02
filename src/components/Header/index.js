@@ -31,7 +31,7 @@ const Header = props => {
         const {isDarkTheme, onThemeChange} = nxtWatchContextData
 
         return (
-          <NxtWatchHeader isDarkTheme>
+          <NxtWatchHeader isDarkTheme={isDarkTheme}>
             <NxtWatchLogo
               src={
                 isDarkTheme
@@ -46,7 +46,7 @@ const Header = props => {
                 <HeaderActionItemButton
                   type="button"
                   onClick={onThemeChange}
-                  isDarkTheme
+                  isDarkTheme={isDarkTheme}
                 >
                   <IconContext.Provider
                     value={{style: {height: '2rem', width: '2rem'}}}
@@ -64,7 +64,7 @@ const Header = props => {
                 <HeaderActionItemButton
                   type="button"
                   onClick={() => {}}
-                  isDarkTheme
+                  isDarkTheme={isDarkTheme}
                 >
                   <IconContext.Provider
                     value={{style: {height: '2rem', width: '2rem'}}}
@@ -75,13 +75,17 @@ const Header = props => {
               </HeaderActionItem>
 
               <HeaderActionItem>
-                <LogoutBtn type="button" onClick={onLogout} isDarkTheme>
+                <LogoutBtn
+                  type="button"
+                  onClick={onLogout}
+                  isDarkTheme={isDarkTheme}
+                >
                   Logout
                 </LogoutBtn>
                 <HeaderActionItemButton
                   type="button"
                   onClick={() => {}}
-                  isDarkTheme
+                  isDarkTheme={isDarkTheme}
                 >
                   <IconContext.Provider
                     value={{style: {height: '2rem', width: '2rem'}}}
