@@ -36,14 +36,25 @@ export const HeaderActionItemButton = styled.button`
   border: none;
   outline: none;
   background: inherit;
+  padding: 0.5rem 1rem;
 `
 
 export const UserProfileImg = styled.img`
-  height: 3rem;
-  width: 3rem;
+  display: none;
+
+  @media (min-width: 768px) {
+    display: inline;
+    height: 2.5rem;
+    width: 2.5rem;
+  }
 `
 
 export const LogoutBtn = styled(HeaderActionItemButton)`
-  color: ${props => (props.isDarkTheme ? '#f9f9f9' : '#4f46e5')};
-  border: 0.1rem solid ${props => (props.isDarkTheme ? '#f9f9f9' : '#4f46e5')};
+  display: none;
+
+  @media (min-width: 768px) {
+    display: inline;
+    color: ${props => (props.isDarkTheme ? '#f9f9f9' : '#4f46e5')};
+    border: 0.1rem solid ${props => (props.isDarkTheme ? '#f9f9f9' : '#4f46e5')};
+  }
 `
