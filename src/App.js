@@ -100,6 +100,11 @@ class App extends Component {
     }
   }
 
+  onThemeChange = () =>
+    this.setState(prevAppState => ({
+      isDarkTheme: !prevAppState.isDarkTheme,
+    }))
+
   updatePartialState = partialStateChangeObject =>
     this.setState(partialStateChangeObject)
 
@@ -132,7 +137,7 @@ class App extends Component {
           onSaveVideo: () => {},
           onUnsaveVideo: () => {},
           isDarkTheme,
-          onThemeChange: () => {},
+          onThemeChange: this.onThemeChange,
           loginErrorMsg,
           updatePartialState: this.updatePartialState,
         }}
