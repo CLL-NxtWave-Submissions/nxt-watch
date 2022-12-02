@@ -1,5 +1,6 @@
 import {withRouter} from 'react-router-dom'
-import {MdDarkMode, MdOutlineLightMode} from 'react-icons/md'
+import {FaMoon} from 'react-icons/fa'
+import {MdOutlineLightMode} from 'react-icons/md'
 import {GiHamburgerMenu} from 'react-icons/gi'
 import {FiLogOut} from 'react-icons/fi'
 
@@ -43,7 +44,7 @@ const Header = props => {
             <HeaderActionsContainer>
               <HeaderActionItem>
                 <HeaderActionItemButton type="button" onClick={onThemeChange}>
-                  {isDarkTheme ? <MdOutlineLightMode /> : <MdDarkMode />}
+                  {isDarkTheme ? <MdOutlineLightMode /> : <FaMoon />}
                 </HeaderActionItemButton>
               </HeaderActionItem>
 
