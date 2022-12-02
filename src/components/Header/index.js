@@ -65,6 +65,7 @@ const Header = props => {
                   type="button"
                   onClick={() => {}}
                   isDarkTheme={isDarkTheme}
+                  isMobileHeaderActionButton
                 >
                   <IconContext.Provider
                     value={{style: {height: '2rem', width: '2rem'}}}
@@ -86,6 +87,7 @@ const Header = props => {
                   type="button"
                   onClick={() => {}}
                   isDarkTheme={isDarkTheme}
+                  isMobileHeaderActionButton
                 >
                   <IconContext.Provider
                     value={{style: {height: '2rem', width: '2rem'}}}
