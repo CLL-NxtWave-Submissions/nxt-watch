@@ -1,4 +1,5 @@
 import {withRouter} from 'react-router-dom'
+import {IconContext} from 'react-icons'
 import {FaMoon} from 'react-icons/fa'
 import {FiSun, FiLogOut} from 'react-icons/fi'
 import {GiHamburgerMenu} from 'react-icons/gi'
@@ -30,7 +31,7 @@ const Header = props => {
         const {isDarkTheme, onThemeChange} = nxtWatchContextData
 
         return (
-          <NxtWatchHeader>
+          <NxtWatchHeader isDarkTheme>
             <NxtWatchLogo
               src={
                 isDarkTheme
@@ -42,8 +43,16 @@ const Header = props => {
 
             <HeaderActionsContainer>
               <HeaderActionItem>
-                <HeaderActionItemButton type="button" onClick={onThemeChange}>
-                  {isDarkTheme ? <FiSun /> : <FaMoon />}
+                <HeaderActionItemButton
+                  type="button"
+                  onClick={onThemeChange}
+                  isDarkTheme
+                >
+                  <IconContext.Provider
+                    value={{style: {height: '2rem', width: '2rem'}}}
+                  >
+                    {isDarkTheme ? <FiSun /> : <FaMoon />}
+                  </IconContext.Provider>
                 </HeaderActionItemButton>
               </HeaderActionItem>
 
@@ -52,17 +61,33 @@ const Header = props => {
                   src="https://assets.ccbp.in/frontend/react-js/nxt-watch-profile-img.png"
                   alt="profile"
                 />
-                <HeaderActionItemButton>
-                  <GiHamburgerMenu />
+                <HeaderActionItemButton
+                  type="button"
+                  onClick={() => {}}
+                  isDarkTheme
+                >
+                  <IconContext.Provider
+                    value={{style: {height: '2rem', width: '2rem'}}}
+                  >
+                    <GiHamburgerMenu />
+                  </IconContext.Provider>
                 </HeaderActionItemButton>
               </HeaderActionItem>
 
               <HeaderActionItem>
-                <LogoutBtn type="button" onClick={onLogout}>
+                <LogoutBtn type="button" onClick={onLogout} isDarkTheme>
                   Logout
                 </LogoutBtn>
-                <HeaderActionItemButton>
-                  <FiLogOut />
+                <HeaderActionItemButton
+                  type="button"
+                  onClick={() => {}}
+                  isDarkTheme
+                >
+                  <IconContext.Provider
+                    value={{style: {height: '2rem', width: '2rem'}}}
+                  >
+                    <FiLogOut />
+                  </IconContext.Provider>
                 </HeaderActionItemButton>
               </HeaderActionItem>
             </HeaderActionsContainer>
