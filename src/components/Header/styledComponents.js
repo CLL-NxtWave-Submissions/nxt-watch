@@ -36,6 +36,10 @@ export const HeaderActionItemButton = styled.button`
   border: none;
   outline: none;
   background: inherit;
+
+  @media (min-width: 768px) {
+    display: ${props => props.isMobileHeaderActionButton && 'none'};
+  }
 `
 
 export const UserProfileImg = styled.img`
