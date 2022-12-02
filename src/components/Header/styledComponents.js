@@ -7,7 +7,7 @@ export const NxtWatchHeader = styled.div`
   justify-content: space-between;
   align-items: center;
   margin: 0;
-  padding: 1rem;
+  padding: 1rem 2rem;
   background-color: ${props => (props.isDarkTheme ? '#313131' : '#ffffff')};
 `
 
@@ -36,7 +36,6 @@ export const HeaderActionItemButton = styled.button`
   border: none;
   outline: none;
   background: inherit;
-  padding: 0.5rem 1rem;
 `
 
 export const UserProfileImg = styled.img`
@@ -54,7 +53,12 @@ export const LogoutBtn = styled(HeaderActionItemButton)`
 
   @media (min-width: 768px) {
     display: inline;
-    color: ${props => (props.isDarkTheme ? '#f9f9f9' : '#4f46e5')};
-    border: 0.1rem solid ${props => (props.isDarkTheme ? '#f9f9f9' : '#4f46e5')};
+    color: ${props => (props.isDarkTheme ? '#f9f9f9' : '#3b82f6')};
+    border: 0.1rem solid ${props => (props.isDarkTheme ? '#f9f9f9' : '#3b82f6')};
+    border-radius: 0.2rem;
+    padding: 0.35rem 1.25rem;
+    font-family: 'Roboto';
+    font-size: 1.1rem;
+    font-weight: 600;
   }
 `
