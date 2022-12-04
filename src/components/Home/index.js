@@ -2,10 +2,12 @@ import {Component} from 'react'
 import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
 
-import {dataFetchRequestUrls, apiRequestStates} from '../common-module'
+import {apiRequestStates} from '../common-module'
 import Header from '../common-components/Header'
 
 import AppContext from '../context/AppContext'
+
+const homeAPIBaseUrl = 'https://apis.ccbp.in/videos/all?search='
 
 export default class Home extends Component {
   state = {
@@ -17,7 +19,7 @@ export default class Home extends Component {
   async componentDidMount() {
     const {searchQuery} = this.state
     const nxtWatchAuthToken = Cookies.get('jwt_token')
-    const homeAPIRequestUrl = `${dataFetchRequestUrls.home}${searchQuery}`
+    const homeAPIRequestUrl = `${homeAPIBaseUrl}${searchQuery}`
 
     const homeAPIResponse = await this.getAPIResponse(
       homeAPIRequestUrl,
