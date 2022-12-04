@@ -1,6 +1,5 @@
 import {Component} from 'react'
 import {Switch, Route, Redirect} from 'react-router-dom'
-import {formatDistanceToNow} from 'date-fns'
 import Cookies from 'js-cookie'
 import Popup from 'reactjs-popup'
 
