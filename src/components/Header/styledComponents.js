@@ -9,6 +9,10 @@ export const NxtWatchHeader = styled.div`
   margin: 0;
   padding: 1rem 2rem;
   background-color: ${props => (props.isDarkTheme ? '#313131' : '#ffffff')};
+
+  @media (min-width: 768px) {
+    padding: 1rem 4rem;
+  }
 `
 
 export const NxtWatchLogo = styled.img`
