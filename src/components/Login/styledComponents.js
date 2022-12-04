@@ -1,23 +1,19 @@
 import styled from 'styled-components'
 
-export const LoginBgContainerLightTheme = styled.div`
+export const LoginBgContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 1.5rem;
-  background-color: #ffffff;
+  background-color: ${props => (props.isDarkTheme ? '#313131' : '#ffffff')};
   height: 100%;
   min-height: 100vh;
 `
-
-export const LoginBgContainerDarkTheme = styled(LoginBgContainerLightTheme)`
-  background-color: #313131;
-`
-
-export const LoginFormContainerLightTheme = styled.form`
+export const LoginFormContainer = styled.form`
   border-radius: 0.6rem;
-  box-shadow: 0 0 0.5rem 0.5rem #f4f4f4;
-  background-color: #ffffff;
+  box-shadow: ${props =>
+    props.isDarkTheme ? 'none' : '0 0 0.5rem 0.5rem #f4f4f4'};
+  background-color: ${props => (props.isDarkTheme ? '#0f0f0f' : '#ffffff')};
   padding: 3rem 2rem;
   display: flex;
   flex-direction: column;
@@ -55,11 +51,6 @@ export const LoginFormContainerLightTheme = styled.form`
   }
 `
 
-export const LoginFormContainerDarkTheme = styled(LoginFormContainerLightTheme)`
-  background-color: #0f0f0f;
-  box-shadow: none;
-`
-
 export const BrandLogo = styled.img`
   height: 3.5rem;
   width: 12rem;
@@ -73,20 +64,14 @@ export const LoginFormInputContainer = styled.div`
   flex-direction: column;
 `
 
-export const LoginFormInputLabelLightTheme = styled.label`
-  color: #94a3b8;
+export const LoginFormInputLabel = styled.label`
+  color: ${props => (props.isDarkTheme ? '#ffffff' : '#94a3b8')};
   font-size: 1rem;
   font-weight: 600;
   font-family: 'Roboto';
   margin: 0;
   margin-top: 0.5rem;
   margin-bottom: 0.25rem;
-`
-
-export const LoginFormInputLabelDarkTheme = styled(
-  LoginFormInputLabelLightTheme,
-)`
-  color: #ffffff;
 `
 
 export const LoginFormInput = styled.input`
@@ -117,16 +102,10 @@ export const ShowPasswordInput = styled.input`
   height: 1rem;
 `
 
-export const ShowPasswordInputLabelLightTheme = styled.label`
-  color: #000000;
+export const ShowPasswordInputLabel = styled.label`
+  color: ${props => (props.isDarkTheme ? '#ffffff' : '#000000')};
   font-size: 1.2rem;
   font-family: 'Roboto';
-`
-
-export const ShowPasswordInputLabelDarkTheme = styled(
-  ShowPasswordInputLabelLightTheme,
-)`
-  color: #ffffff;
 `
 
 export const LoginErrorMsg = styled.p`
