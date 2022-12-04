@@ -15,6 +15,13 @@ export const NxtWatchHeader = styled.div`
   }
 `
 
+export const NxtWatchLogoButton = styled.button`
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: inherit;
+`
+
 export const NxtWatchLogo = styled.img`
   height: 3rem;
   width: 10rem;
@@ -34,12 +41,8 @@ export const HeaderActionItem = styled.li`
   align-items: center;
 `
 
-export const HeaderActionItemButton = styled.button`
+export const HeaderActionItemButton = styled(NxtWatchLogoButton)`
   color: ${props => (props.isDarkTheme ? '#f9f9f9' : '#181818')};
-  cursor: pointer;
-  border: none;
-  outline: none;
-  background: inherit;
 
   @media (min-width: 768px) {
     display: ${props => props.isMobileHeaderActionButton && 'none'};
