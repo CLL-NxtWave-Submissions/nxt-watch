@@ -8,6 +8,7 @@ import Cookies from 'js-cookie'
 
 import {
   NxtWatchHeader,
+  NxtWatchLogoButton,
   NxtWatchLogo,
   HeaderActionsContainer,
   HeaderActionItem,
@@ -25,6 +26,11 @@ const Header = props => {
     history.replace('/login')
   }
 
+  const onLogoClick = () => {
+    const {history} = props
+    history.push('/')
+  }
+
   return (
     <AppContext.Consumer>
       {nxtWatchContextData => {
@@ -32,14 +38,16 @@ const Header = props => {
 
         return (
           <NxtWatchHeader isDarkTheme={isDarkTheme}>
-            <NxtWatchLogo
-              src={
-                isDarkTheme
-                  ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png'
-                  : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png'
-              }
-              alt="website logo"
-            />
+            <NxtWatchLogoButton type="button" onClick={onLogoClick}>
+              <NxtWatchLogo
+                src={
+                  isDarkTheme
+                    ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png'
+                    : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png'
+                }
+                alt="website logo"
+              />
+            </NxtWatchLogoButton>
 
             <HeaderActionsContainer>
               <HeaderActionItem>
