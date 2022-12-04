@@ -20,29 +20,80 @@ import {
   ShowPasswordInputLabelLightTheme,
 } from './styledComponents'
 
+const loginUrl = 'https://apis.ccbp.in/login'
+
 export default class Login extends Component {
+  state = {
+    username: '',
+    password: '',
+    showPassword: false,
+    loginErrorMsg: '',
+  }
+
+  onUsernameChange = usernameChangeEvent => {
+    const updatedUsername = usernameChangeEvent.target.value
+
+    this.setState({
+      username: updatedUsername,
+    })
+  }
+
+  onPasswordChange = passwordChangeEvent => {
+    const updatedPassword = passwordChangeEvent.target.value
+
+    this.setState({
+      password: updatedPassword,
+    })
+  }
+
+  onShowPasswordChange = showPasswordChangeEvent => {
+    const showPasswordInputElement = showPasswordChangeEvent.target
+    const updatedShowPasswordState = showPasswordInputElement.checked
+
+    this.setState({
+      showPassword: updatedShowPasswordState,
+    })
+  }
+
+  onLoginFormSubmit = async loginSubmitEvent => {
+    loginSubmitEvent.preventDefault()
+
+    const {username, password} = this.state
+    const loginCredentials = {username, password}
+
+    const loginRequestOptions = {
+      method: 'POST',
+      body: JSON.stringify(loginCredentials),
+    }
+
+    const loginResponse = await fetch(loginUrl, loginRequestOptions)
+    const responseData = await loginResponse.json()
+
+    if (loginResponse.ok) {
+      const jwtToken = responseData.jwt_token
+      Cookies.set('jwt_token', jwtToken, {expires: 30})
+
+      const {history} = this.props
+      history.replace('/')
+    } else {
+      const loginErrorMsg = responseData.error_msg
+      this.setState({loginErrorMsg})
+    }
+  }
+
   render() {
+    const {username, password, showPassword, loginErrorMsg} = this.state
     const nxtWatchAuthToken = Cookies.get('jwt_token')
 
     const redirectToHome = <Redirect to="/" />
     const loginUI = (
       <AppContext.Consumer>
         {appContextData => {
-          const {
-            username,
-            password,
-            showPassword,
-            loginErrorMsg,
-            onUsernameChange,
-            onPasswordChange,
-            onShowPasswordChange,
-            onLoginFormSubmit,
-            isDarkTheme,
-          } = appContextData
+          const {isDarkTheme} = appContextData
 
           return isDarkTheme ? (
             <LoginBgContainerDarkTheme>
-              <LoginFormContainerDarkTheme onSubmit={onLoginFormSubmit}>
+              <LoginFormContainerDarkTheme onSubmit={this.onLoginFormSubmit}>
                 <BrandLogo
                   src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png"
                   alt="website logo"
@@ -56,7 +107,7 @@ export default class Login extends Component {
                     type="text"
                     placeholder="Username"
                     value={username}
-                    onChange={onUsernameChange}
+                    onChange={this.onUsernameChange}
                   />
                 </LoginFormInputContainer>
 
@@ -69,7 +120,7 @@ export default class Login extends Component {
                     type={showPassword ? 'text' : 'password'}
                     placeholder="Password"
                     value={password}
-                    onChange={onPasswordChange}
+                    onChange={this.onPasswordChange}
                   />
                 </LoginFormInputContainer>
 
@@ -77,7 +128,7 @@ export default class Login extends Component {
                   <ShowPasswordInput
                     id="show-password"
                     type="checkbox"
-                    onChange={onShowPasswordChange}
+                    onChange={this.onShowPasswordChange}
                     checked={showPassword}
                   />
                   <ShowPasswordInputLabelDarkTheme>
@@ -96,7 +147,7 @@ export default class Login extends Component {
             </LoginBgContainerDarkTheme>
           ) : (
             <LoginBgContainerLightTheme>
-              <LoginFormContainerLightTheme onSubmit={onLoginFormSubmit}>
+              <LoginFormContainerLightTheme onSubmit={this.onLoginFormSubmit}>
                 <BrandLogo
                   src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
                   alt="website logo"
@@ -110,7 +161,7 @@ export default class Login extends Component {
                     type="text"
                     placeholder="Username"
                     value={username}
-                    onChange={onUsernameChange}
+                    onChange={this.onUsernameChange}
                   />
                 </LoginFormInputContainer>
 
@@ -123,7 +174,7 @@ export default class Login extends Component {
                     type={showPassword ? 'text' : 'password'}
                     placeholder="Password"
                     value={password}
-                    onChange={onPasswordChange}
+                    onChange={this.onPasswordChange}
                   />
                 </LoginFormInputContainer>
 
@@ -131,7 +182,7 @@ export default class Login extends Component {
                   <ShowPasswordInput
                     id="show-password"
                     type="checkbox"
-                    onChange={onShowPasswordChange}
+                    onChange={this.onShowPasswordChange}
                     checked={showPassword}
                   />
                   <ShowPasswordInputLabelLightTheme htmlFor="show-password">
