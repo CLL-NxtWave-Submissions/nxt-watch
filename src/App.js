@@ -35,9 +35,6 @@ const RouteWithAuthCheck = props => {
 /* App component - Root of the component tree */
 class App extends Component {
   state = {
-    videosList: [],
-    savedVideoList: [],
-    isUserLoggedIn: false,
     isDarkTheme: false,
   }
 
@@ -46,24 +43,14 @@ class App extends Component {
       isDarkTheme: !prevAppState.isDarkTheme,
     }))
 
-  updatePartialState = partialStateChangeObject =>
-    this.setState(partialStateChangeObject)
-
   render() {
-    const {videosList, savedVideoList, isUserLoggedIn, isDarkTheme} = this.state
+    const {isDarkTheme} = this.state
 
     return (
       <AppContext.Provider
         value={{
-          isUserLoggedIn,
-          onLogout: () => {},
-          videosList,
-          savedVideoList,
-          onSaveVideo: () => {},
-          onUnsaveVideo: () => {},
           isDarkTheme,
           onThemeChange: this.onThemeChange,
-          updatePartialState: this.updatePartialState,
         }}
       >
         <Switch>
