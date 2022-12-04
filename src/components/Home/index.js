@@ -3,7 +3,7 @@ import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
 
 import {dataFetchRequestUrls, apiRequestStates} from '../common-module'
-import Header from '../Header'
+import Header from '../common-components/Header'
 
 import AppContext from '../context/AppContext'
 
