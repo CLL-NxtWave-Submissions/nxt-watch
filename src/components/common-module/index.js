@@ -1,5 +1,3 @@
-import {withRouter} from 'react-router-dom'
-
 // Urls for requesting data necessary to render
 // content UI for different routes.
 export const dataFetchRequestUrls = {
