@@ -85,7 +85,7 @@ const Header = props => {
                 </LogoutBtn>
                 <HeaderActionItemButton
                   type="button"
-                  onClick={() => {}}
+                  onClick={onLogout}
                   isDarkTheme={isDarkTheme}
                   isMobileHeaderActionButton
                 >
