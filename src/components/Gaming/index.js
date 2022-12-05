@@ -57,7 +57,7 @@ export default class Gaming extends Component {
     </>
   )
 
-  renderDataFetchFailureUI = () => <h1>Error fetching home videos data !</h1>
+  renderDataFetchFailureUI = () => <h1>Error fetching gaming videos data !</h1>
 
   render() {
     const {videosList, apiRequestState} = this.state
