@@ -22,7 +22,9 @@ export default class Gaming extends Component {
     const nxtWatchAuthToken = Cookies.get('jwt_token')
     const gamingAPIRequestOptions = {
       method: 'GET',
-      Authorization: `Bearer ${nxtWatchAuthToken}`,
+      headers: {
+        Authorization: `Bearer ${nxtWatchAuthToken}`,
+      },
     }
 
     const gamingAPIResponse = await fetch(gamingAPIUrl, gamingAPIRequestOptions)
