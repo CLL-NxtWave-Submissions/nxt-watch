@@ -22,6 +22,12 @@ export const LogoutPopupMessage = styled.p`
   text-align: center;
 `
 
+export const LogoutPopupButtonsContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+`
+
 export const LogoutPopupButton = styled.button`
     border: ${props =>
       props.isOutlineButton
