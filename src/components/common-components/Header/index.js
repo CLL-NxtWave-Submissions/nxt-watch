@@ -26,11 +26,6 @@ const Header = props => {
     history.replace('/login')
   }
 
-  const onLogoClick = () => {
-    const {history} = props
-    history.push('/')
-  }
-
   return (
     <AppContext.Consumer>
       {nxtWatchContextData => {
