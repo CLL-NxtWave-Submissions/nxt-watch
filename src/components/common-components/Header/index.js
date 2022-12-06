@@ -95,7 +95,12 @@ const Header = props => {
                     </LogoutBtn>
                   }
                 >
-                  <LogoutPopup />
+                  {popupCloseEventHandler => (
+                    <LogoutPopup
+                      logoutHandler={onLogout}
+                      logoutCancelHandler={popupCloseEventHandler}
+                    />
+                  )}
                 </Popup>
 
                 <Popup
@@ -115,7 +120,12 @@ const Header = props => {
                     </HeaderActionItemButton>
                   }
                 >
-                  <LogoutPopup />
+                  {popupCloseEventHandler => (
+                    <LogoutPopup
+                      logoutCancelHandler={popupCloseEventHandler}
+                      logoutHandler={onLogout}
+                    />
+                  )}
                 </Popup>
               </HeaderActionItem>
             </HeaderActionsContainer>
