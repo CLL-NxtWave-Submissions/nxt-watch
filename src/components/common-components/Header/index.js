@@ -1,10 +1,14 @@
 import {withRouter} from 'react-router-dom'
 import {IconContext} from 'react-icons'
+import Popup from 'reactjs-popup'
+
 import {FaMoon} from 'react-icons/fa'
 import {FiSun, FiLogOut} from 'react-icons/fi'
 import {GiHamburgerMenu} from 'react-icons/gi'
 
 import Cookies from 'js-cookie'
+
+import LogoutPopup from '../../popup-components/LogoutPopup'
 
 import {
   NxtWatchHeader,
@@ -79,25 +83,40 @@ const Header = props => {
               </HeaderActionItem>
 
               <HeaderActionItem>
-                <LogoutBtn
-                  type="button"
-                  onClick={onLogout}
-                  isDarkTheme={isDarkTheme}
+                <Popup
+                  modal
+                  trigger={
+                    <LogoutBtn
+                      type="button"
+                      onClick={onLogout}
+                      isDarkTheme={isDarkTheme}
+                    >
+                      Logout
+                    </LogoutBtn>
+                  }
                 >
-                  Logout
-                </LogoutBtn>
-                <HeaderActionItemButton
-                  type="button"
-                  onClick={onLogout}
-                  isDarkTheme={isDarkTheme}
-                  isMobileHeaderActionButton
+                  <LogoutPopup />
+                </Popup>
+
+                <Popup
+                  modal
+                  trigger={
+                    <HeaderActionItemButton
+                      type="button"
+                      onClick={onLogout}
+                      isDarkTheme={isDarkTheme}
+                      isMobileHeaderActionButton
+                    >
+                      <IconContext.Provider
+                        value={{style: {height: '2rem', width: '2rem'}}}
+                      >
+                        <FiLogOut />
+                      </IconContext.Provider>
+                    </HeaderActionItemButton>
+                  }
                 >
-                  <IconContext.Provider
-                    value={{style: {height: '2rem', width: '2rem'}}}
-                  >
-                    <FiLogOut />
-                  </IconContext.Provider>
-                </HeaderActionItemButton>
+                  <LogoutPopup />
+                </Popup>
               </HeaderActionItem>
             </HeaderActionsContainer>
           </NxtWatchHeader>
