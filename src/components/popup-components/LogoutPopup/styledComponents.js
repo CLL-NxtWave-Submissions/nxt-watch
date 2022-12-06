@@ -5,6 +5,8 @@ export const LogoutPopupBgContainer = styled.div`
   justify-content: center;
   align-items: center;
   background-color: #00000080;
+  height: 100vh;
+  width: 100vw;
 `
 
 export const LogoutPopupContainer = styled.div`
