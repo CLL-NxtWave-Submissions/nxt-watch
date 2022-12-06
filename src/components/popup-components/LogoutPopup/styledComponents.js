@@ -22,6 +22,10 @@ export const LogoutPopupContainer = styled.div`
 export const LogoutPopupMessage = styled.p`
   color: ${props => (props.isDarkTheme ? '#ffffff' : '#00306e')};
   text-align: center;
+  font-family: 'Roboto';
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-bottom: 2.5rem;
 `
 
 export const LogoutPopupButtonsContainer = styled.div`
@@ -31,16 +35,20 @@ export const LogoutPopupButtonsContainer = styled.div`
 `
 
 export const LogoutPopupButton = styled.button`
-    border: ${props =>
-      props.isOutlineButton
-        ? `0.1rem solid ${props.isDarkTheme ? '#f9f9f9' : '#606060'}`
-        : 'none'};
-    border-radius: 0.2rem;
-    background-color: ${props =>
-      props.isOutlineButton ? 'inherit' : '#4f46e5'};
-    color: ${props =>
-      props.isOutlineButton
-        ? `${props.isDarkTheme ? '#f8fafc' : '#909090'}`
-        : '#ffffff'}
-    cursor: pointer;
+  border: ${props =>
+    props.isOutlineButton
+      ? `0.1rem solid ${props.isDarkTheme ? '#f9f9f9' : '#7e858e'}`
+      : `0.1rem solid #3b82f6`};
+  border-radius: 0.2rem;
+  background-color: ${props => (props.isOutlineButton ? 'inherit' : '#3b82f6')};
+  color: ${props =>
+    props.isOutlineButton
+      ? `${props.isDarkTheme ? '#f8fafc' : '#909090'}`
+      : '#ffffff'};
+  cursor: pointer;
+  margin: 0 1rem;
+  padding: 0.5rem 1rem;
+  font-family: 'Roboto';
+  font-size: 1.3rem;
+  font-weight: 500;
 `
