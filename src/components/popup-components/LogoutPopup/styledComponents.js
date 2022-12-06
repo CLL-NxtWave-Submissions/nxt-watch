@@ -37,13 +37,13 @@ export const LogoutPopupButtonsContainer = styled.div`
 export const LogoutPopupButton = styled.button`
   border: ${props =>
     props.isOutlineButton
-      ? `0.1rem solid ${props.isDarkTheme ? '#f9f9f9' : '#7e858e'}`
+      ? `0.1rem solid ${props.isDarkTheme ? '#e2e8f0' : '#7e858e'}`
       : `0.1rem solid #3b82f6`};
   border-radius: 0.2rem;
   background-color: ${props => (props.isOutlineButton ? 'inherit' : '#3b82f6')};
   color: ${props =>
     props.isOutlineButton
-      ? `${props.isDarkTheme ? '#f8fafc' : '#909090'}`
+      ? `${props.isDarkTheme ? '#e2e8f0' : '#909090'}`
       : '#ffffff'};
   cursor: pointer;
   margin: 0 1rem;
