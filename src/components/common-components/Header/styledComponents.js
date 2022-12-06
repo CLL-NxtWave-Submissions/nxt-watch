@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import {Link} from 'react-router-dom'
 
 export const NxtWatchHeader = styled.div`
   width: 100%;
@@ -15,11 +16,8 @@ export const NxtWatchHeader = styled.div`
   }
 `
 
-export const NxtWatchLogoButton = styled.button`
-  cursor: pointer;
-  border: none;
-  outline: none;
-  background: inherit;
+export const NxtWatchLogoLink = styled(Link)`
+  text-decoration: none;
 `
 
 export const NxtWatchLogo = styled.img`
@@ -41,7 +39,11 @@ export const HeaderActionItem = styled.li`
   align-items: center;
 `
 
-export const HeaderActionItemButton = styled(NxtWatchLogoButton)`
+export const HeaderActionItemButton = styled.button`
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: inherit;
   color: ${props => (props.isDarkTheme ? '#f9f9f9' : '#181818')};
 
   @media (min-width: 768px) {

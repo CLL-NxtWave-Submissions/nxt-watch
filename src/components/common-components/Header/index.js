@@ -8,7 +8,7 @@ import Cookies from 'js-cookie'
 
 import {
   NxtWatchHeader,
-  NxtWatchLogoButton,
+  NxtWatchLogoLink,
   NxtWatchLogo,
   HeaderActionsContainer,
   HeaderActionItem,
@@ -38,7 +38,7 @@ const Header = props => {
 
         return (
           <NxtWatchHeader isDarkTheme={isDarkTheme}>
-            <NxtWatchLogoButton type="button" onClick={onLogoClick}>
+            <NxtWatchLogoLink to="/">
               <NxtWatchLogo
                 src={
                   isDarkTheme
@@ -47,7 +47,7 @@ const Header = props => {
                 }
                 alt="website logo"
               />
-            </NxtWatchLogoButton>
+            </NxtWatchLogoLink>
 
             <HeaderActionsContainer>
               <HeaderActionItem>
