@@ -7,6 +7,8 @@ import React from 'react'
 const AppContext = React.createContext({
   isDarkTheme: false,
   onThemeChange: () => {},
+  selectedNavItemId: '',
+  onNavItemSelect: () => {},
 })
 
 export default AppContext
