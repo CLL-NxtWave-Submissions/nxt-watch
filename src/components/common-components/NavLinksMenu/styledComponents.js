@@ -10,7 +10,7 @@ export const NavLinksMenuContainer = styled.ul`
   background-color: ${props => (props.isDarkTheme ? '#0f0f0f' : '#ffffff')};
 `
 
-export const NavLinksMenuItem = styled.li`
+export const NavLinkItem = styled.li`
   background-color: ${props =>
     props.isDarkTheme
       ? `${props.isSelected ? '#313131' : 'inherit'}`
