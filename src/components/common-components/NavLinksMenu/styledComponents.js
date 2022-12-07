@@ -11,9 +11,6 @@ export const NavLinksMenuContainer = styled.ul`
 `
 
 export const NavLinksMenuItem = styled.li`
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: ${props =>
     props.isDarkTheme
       ? `${props.isSelected ? '#313131' : 'inherit'}`
@@ -22,6 +19,16 @@ export const NavLinksMenuItem = styled.li`
 
 export const NavLink = styled(Link)`
   text-decoration: none;
+`
+
+export const NavLinksMenuItemButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  outline: none;
+  color: inherit;
+  cursor: pointer;
 `
 
 export const NavLinksMenuItemName = styled.label`
