@@ -1,8 +1,3 @@
-import {AiFillHome} from 'react-icons/ai'
-import {HiFire} from 'react-icons/hi'
-import {SiYoutubegaming} from 'react-icons/si'
-import {BiListPlus} from 'react-icons/bi'
-
 import {
   NavLinksMenuContainer,
   NavLinkItem,
@@ -10,34 +5,9 @@ import {
   NavLinksMenuItemName,
 } from './styledComponents'
 
-import AppContext from '../../context/AppContext'
+import {navLinksData} from '../../common-module'
 
-const navLinksData = [
-  {
-    id: 'home',
-    url: '/',
-    name: 'Home',
-    icon: AiFillHome,
-  },
-  {
-    id: 'trending',
-    url: '/trending',
-    name: 'Trending',
-    icon: HiFire,
-  },
-  {
-    id: 'gaming',
-    url: '/gaming',
-    name: 'Gaming',
-    icon: SiYoutubegaming,
-  },
-  {
-    id: 'saved-videos',
-    url: '/saved-videos',
-    name: 'Saved Videos',
-    icon: BiListPlus,
-  },
-]
+import AppContext from '../../context/AppContext'
 
 const NavLinksMenuItem = props => {
   const {itemData} = props
