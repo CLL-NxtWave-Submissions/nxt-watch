@@ -23,7 +23,11 @@ const PopupUI = props => {
         return (
           <MenuPopupBgContainer isDarkTheme={isDarkTheme}>
             <MenuPopupCloseContainer>
-              <MenuPopupCloseButton isDarkTheme={isDarkTheme}>
+              <MenuPopupCloseButton
+                type="button"
+                onClick={popupCloseHandler}
+                isDarkTheme={isDarkTheme}
+              >
                 <IconContext.Provider value={{height: '2rem', width: '2rem'}}>
                   <MdClose />
                 </IconContext.Provider>
