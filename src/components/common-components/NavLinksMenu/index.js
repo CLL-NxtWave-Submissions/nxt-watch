@@ -26,7 +26,7 @@ const NavLinksMenuItem = props => {
               onClick={() =>
                 popupCloseHandler === undefined
                   ? onNavItemSelect(id)
-                  : onNavItemSelect(id) && popupCloseHandler()
+                  : onNavItemSelect(id, popupCloseHandler)
               }
             >
               {icon}

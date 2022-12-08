@@ -44,10 +44,13 @@ class App extends Component {
       isDarkTheme: !prevAppState.isDarkTheme,
     }))
 
-  onNavItemSelect = inputNavItemId =>
+  onNavItemSelect = (inputNavItemId, onPopupClose = () => {}) => {
+    onPopupClose()
+
     this.setState({
       selectedNavItemId: inputNavItemId,
     })
+  }
 
   render() {
     const {isDarkTheme, selectedNavItemId} = this.state
