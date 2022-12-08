@@ -11,6 +11,8 @@ import SavedVideos from './components/SavedVideos'
 import NotFound from './components/NotFound'
 import VideoItemDetails from './components/VideoItemDetails'
 
+import {navLinksData} from './components/common-module'
+
 import AppContext from './components/context/AppContext'
 
 import './App.css'
@@ -35,6 +37,7 @@ const RouteWithAuthCheck = props => {
 class App extends Component {
   state = {
     isDarkTheme: false,
+    selectedNavItemId: navLinksData[0].id,
   }
 
   onThemeChange = () =>
@@ -42,14 +45,21 @@ class App extends Component {
       isDarkTheme: !prevAppState.isDarkTheme,
     }))
 
+  onNavItemSelect = inputNavItemId =>
+    this.setState({
+      selectedNavItemId: inputNavItemId,
+    })
+
   render() {
-    const {isDarkTheme} = this.state
+    const {isDarkTheme, selectedNavItemId} = this.state
 
     return (
       <AppContext.Provider
         value={{
           isDarkTheme,
           onThemeChange: this.onThemeChange,
+          selectedNavItemId,
+          onNavItemSelect: this.onNavItemSelect,
         }}
       >
         <Switch>
