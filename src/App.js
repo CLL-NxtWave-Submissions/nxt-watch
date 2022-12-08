@@ -1,7 +1,6 @@
 import {Component} from 'react'
 import {Switch, Route, Redirect} from 'react-router-dom'
 import Cookies from 'js-cookie'
-import Popup from 'reactjs-popup'
 
 import Login from './components/Login'
 import Home from './components/Home'
