@@ -9,6 +9,7 @@ import {GiHamburgerMenu} from 'react-icons/gi'
 import Cookies from 'js-cookie'
 
 import LogoutPopup from '../../popup-components/LogoutPopup'
+import MenuPopup from '../../popup-components/MenuPopup'
 
 import {
   NxtWatchHeader,
@@ -68,18 +69,22 @@ const Header = props => {
                   src="https://assets.ccbp.in/frontend/react-js/nxt-watch-profile-img.png"
                   alt="profile"
                 />
-                <HeaderActionItemButton
-                  type="button"
-                  onClick={() => {}}
-                  isDarkTheme={isDarkTheme}
-                  isMobileHeaderActionButton
-                >
-                  <IconContext.Provider
-                    value={{style: {height: '2rem', width: '2rem'}}}
-                  >
-                    <GiHamburgerMenu />
-                  </IconContext.Provider>
-                </HeaderActionItemButton>
+
+                <MenuPopup
+                  popupTrigger={
+                    <HeaderActionItemButton
+                      type="button"
+                      isDarkTheme={isDarkTheme}
+                      isMobileHeaderActionButton
+                    >
+                      <IconContext.Provider
+                        value={{style: {height: '2rem', width: '2rem'}}}
+                      >
+                        <GiHamburgerMenu />
+                      </IconContext.Provider>
+                    </HeaderActionItemButton>
+                  }
+                />
               </HeaderActionItem>
 
               <HeaderActionItem>
