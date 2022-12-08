@@ -10,7 +10,7 @@ import {navLinksData} from '../../common-module'
 import AppContext from '../../context/AppContext'
 
 const NavLinksMenuItem = props => {
-  const {itemData} = props
+  const {itemData, popupCloseHandler} = props
   const {id, name, icon} = itemData
 
   return (
@@ -23,7 +23,11 @@ const NavLinksMenuItem = props => {
           <NavLinkItem isDarkTheme={isDarkTheme} isSelected={isItemSelected}>
             <NavLinksMenuItemButton
               type="button"
-              onClick={() => onNavItemSelect(id)}
+              onClick={() =>
+                popupCloseHandler === undefined
+                  ? onNavItemSelect(id)
+                  : onNavItemSelect(id) && popupCloseHandler()
+              }
             >
               {icon}
               <NavLinksMenuItemName
@@ -40,23 +44,28 @@ const NavLinksMenuItem = props => {
   )
 }
 
-const NavLinksMenu = () => (
-  <AppContext.Consumer>
-    {appContextData => {
-      const {isDarkTheme} = appContextData
+const NavLinksMenu = props => {
+  const {popupCloseHandler} = props
 
-      return (
-        <NavLinksMenuContainer isDarkTheme={isDarkTheme}>
-          {navLinksData.map(navLinkItemData => (
-            <NavLinksMenuItem
-              key={navLinkItemData.id}
-              itemData={navLinkItemData}
-            />
-          ))}
-        </NavLinksMenuContainer>
-      )
-    }}
-  </AppContext.Consumer>
-)
+  return (
+    <AppContext.Consumer>
+      {appContextData => {
+        const {isDarkTheme} = appContextData
+
+        return (
+          <NavLinksMenuContainer isDarkTheme={isDarkTheme}>
+            {navLinksData.map(navLinkItemData => (
+              <NavLinksMenuItem
+                key={navLinkItemData.id}
+                itemData={navLinkItemData}
+                popupCloseHandler={popupCloseHandler}
+              />
+            ))}
+          </NavLinksMenuContainer>
+        )
+      }}
+    </AppContext.Consumer>
+  )
+}
 
 export default NavLinksMenu
