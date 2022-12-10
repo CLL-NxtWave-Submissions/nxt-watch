@@ -5,9 +5,9 @@ export const NavLinksMenuContainer = styled.ul`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   padding-left: 0;
   background-color: ${props => (props.isDarkTheme ? '#0f0f0f' : '#ffffff')};
+  list-style-type: none;
 `
 
 export const NavLinkItem = styled.li`

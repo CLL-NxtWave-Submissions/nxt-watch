@@ -5,6 +5,8 @@ import {
   NavLinksMenuItemName,
 } from './styledComponents'
 
+import StyledReactIcon from '../StyledReactIcon'
+
 import {navLinksData} from '../../common-module'
 
 import AppContext from '../../context/AppContext'
@@ -22,7 +24,11 @@ const NavLinksMenuItem = props => {
         return (
           <NavLinkItem isDarkTheme={isDarkTheme} isSelected={isItemSelected}>
             <NavLink to={url}>
-              {icon}
+              <StyledReactIcon
+                originalReactIcon={icon}
+                isSelected={isItemSelected}
+                isDarkTheme={isDarkTheme}
+              />
               <NavLinksMenuItemName
                 isDarkTheme={isDarkTheme}
                 isSelected={isItemSelected}
