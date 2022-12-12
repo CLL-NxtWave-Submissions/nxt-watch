@@ -6,8 +6,6 @@ export const NavLinksMenuContainer = styled.ul`
   flex-direction: column;
   justify-content: center;
   background-color: inherit;
-  //   background-color: ${props =>
-    props.isDarkTheme ? '#0f0f0f' : '#ffffff'};
   padding-left: 0;
   list-style-type: none;
   width: 100%;
@@ -16,7 +14,7 @@ export const NavLinksMenuContainer = styled.ul`
 export const NavLinkItem = styled.li`
   background-color: ${props =>
     props.isDarkTheme
-      ? `${props.isSelected ? '#606060' : 'inherit'}`
+      ? `${props.isSelected ? '#424242' : 'inherit'}`
       : `${props.isSelected ? '#ebebeb' : 'inherit'}`};
   padding: 1rem;
 `
