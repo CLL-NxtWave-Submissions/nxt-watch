@@ -1,8 +1,10 @@
 import {
   NavLinksMenuContainer,
   NavLink,
+  NavLinkIconContainer,
+  NavLinkMenuItemNameContainer,
   NavLinkItem,
-  NavLinksMenuItemName,
+  NavLinkMenuItemName,
 } from './styledComponents'
 
 import StyledReactIcon from '../StyledReactIcon'
@@ -24,17 +26,22 @@ const NavLinksMenuItem = props => {
         return (
           <NavLinkItem isDarkTheme={isDarkTheme} isSelected={isItemSelected}>
             <NavLink to={url}>
-              <StyledReactIcon
-                originalReactIcon={icon}
-                isSelected={isItemSelected}
-                isDarkTheme={isDarkTheme}
-              />
-              <NavLinksMenuItemName
-                isDarkTheme={isDarkTheme}
-                isSelected={isItemSelected}
-              >
-                {name}
-              </NavLinksMenuItemName>
+              <NavLinkIconContainer>
+                <StyledReactIcon
+                  originalReactIcon={icon}
+                  isSelected={isItemSelected}
+                  isDarkTheme={isDarkTheme}
+                />
+              </NavLinkIconContainer>
+
+              <NavLinkMenuItemNameContainer>
+                <NavLinkMenuItemName
+                  isDarkTheme={isDarkTheme}
+                  isSelected={isItemSelected}
+                >
+                  {name}
+                </NavLinkMenuItemName>
+              </NavLinkMenuItemNameContainer>
             </NavLink>
           </NavLinkItem>
         )
