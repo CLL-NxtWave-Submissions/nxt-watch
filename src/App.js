@@ -44,13 +44,10 @@ class App extends Component {
       isDarkTheme: !prevAppState.isDarkTheme,
     }))
 
-  onNavItemSelect = (inputNavItemId, onPopupClose = () => {}) => {
-    onPopupClose()
-
+  setSelectedNavItemId = inputNavItemId =>
     this.setState({
       selectedNavItemId: inputNavItemId,
     })
-  }
 
   render() {
     const {isDarkTheme, selectedNavItemId} = this.state
@@ -61,7 +58,7 @@ class App extends Component {
           isDarkTheme,
           onThemeChange: this.onThemeChange,
           selectedNavItemId,
-          onNavItemSelect: this.onNavItemSelect,
+          setSelectedNavItemId: this.setSelectedNavItemId,
         }}
       >
         <Switch>
