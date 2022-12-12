@@ -39,7 +39,7 @@ const PopupUI = props => {
             </MenuPopupCloseContainer>
 
             <MenuPopupContentContainer>
-              <NavLinksMenu popupCloseHandler={popupCloseHandler} />
+              <NavLinksMenu />
             </MenuPopupContentContainer>
           </MenuPopupBgContainer>
         )

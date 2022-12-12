@@ -51,7 +51,7 @@ const NavLinksMenuItem = props => {
 }
 
 const NavLinksMenu = props => {
-  const {popupCloseHandler, insideLeftNavBar} = props
+  const {insideLeftNavBar} = props
 
   return (
     <AppContext.Consumer>
@@ -64,7 +64,6 @@ const NavLinksMenu = props => {
               <NavLinksMenuItem
                 key={navLinkItemData.id}
                 itemData={navLinkItemData}
-                popupCloseHandler={popupCloseHandler}
                 insideLeftNavBar={insideLeftNavBar}
               />
             ))}
