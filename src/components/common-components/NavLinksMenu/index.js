@@ -14,7 +14,7 @@ import {navLinksData} from '../../common-module'
 import AppContext from '../../context/AppContext'
 
 const NavLinksMenuItem = props => {
-  const {itemData} = props
+  const {itemData, insideLeftNavBar} = props
   const {id, url, name, icon} = itemData
 
   return (
@@ -26,7 +26,7 @@ const NavLinksMenuItem = props => {
         return (
           <NavLinkItem isDarkTheme={isDarkTheme} isSelected={isItemSelected}>
             <NavLink to={url}>
-              <NavLinkIconContainer>
+              <NavLinkIconContainer insideLeftNavBar={insideLeftNavBar}>
                 <StyledReactIcon
                   originalReactIcon={icon}
                   isSelected={isItemSelected}
@@ -34,7 +34,7 @@ const NavLinksMenuItem = props => {
                 />
               </NavLinkIconContainer>
 
-              <NavLinkMenuItemNameContainer>
+              <NavLinkMenuItemNameContainer insideLeftNavBar={insideLeftNavBar}>
                 <NavLinkMenuItemName
                   isDarkTheme={isDarkTheme}
                   isSelected={isItemSelected}
@@ -51,7 +51,7 @@ const NavLinksMenuItem = props => {
 }
 
 const NavLinksMenu = props => {
-  const {popupCloseHandler} = props
+  const {popupCloseHandler, insideLeftNavBar} = props
 
   return (
     <AppContext.Consumer>
@@ -65,6 +65,7 @@ const NavLinksMenu = props => {
                 key={navLinkItemData.id}
                 itemData={navLinkItemData}
                 popupCloseHandler={popupCloseHandler}
+                insideLeftNavBar={insideLeftNavBar}
               />
             ))}
           </NavLinksMenuContainer>
