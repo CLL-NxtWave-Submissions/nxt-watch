@@ -5,9 +5,9 @@ export const NavLinksMenuContainer = styled.ul`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-left: 0;
   background-color: ${props => (props.isDarkTheme ? '#0f0f0f' : '#ffffff')};
   list-style-type: none;
+  width: 100%;
 `
 
 export const NavLinkItem = styled.li`
@@ -15,23 +15,26 @@ export const NavLinkItem = styled.li`
     props.isDarkTheme
       ? `${props.isSelected ? '#313131' : 'inherit'}`
       : `${props.isSelected ? '#ebebeb' : 'inherit'}`};
+  padding: 1rem;
 `
 
 export const NavLink = styled(Link)`
   text-decoration: none;
-`
-
-export const NavLinksMenuItemButton = styled.button`
   display: flex;
-  justify-content: center;
-  align-items: center;
-  border: none;
-  outline: none;
-  color: inherit;
-  cursor: pointer;
+  width: 100%;
 `
 
-export const NavLinksMenuItemName = styled.label`
+export const NavLinkMenuItemNameContainer = styled.div`
+  width: 50%;
+  display: flex;
+  padding: 0 0.5rem;
+`
+
+export const NavLinkIconContainer = styled(NavLinkMenuItemNameContainer)`
+  justify-content: flex-end;
+`
+
+export const NavLinkMenuItemName = styled.label`
   color: ${props =>
     props.isDarkTheme
       ? `${props.isSelected ? '#ffffff' : '#ebebeb'}`
