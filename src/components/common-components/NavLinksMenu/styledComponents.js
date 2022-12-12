@@ -26,8 +26,8 @@ export const NavLink = styled(Link)`
 `
 
 export const NavLinkMenuItemNameContainer = styled.div`
+  display: ${props => (props.insideLeftNavBar ? 'none' : 'flex')};
   width: 50%;
-  display: flex;
   padding: 0 0.5rem;
 `
 
