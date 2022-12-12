@@ -11,8 +11,8 @@ const StyledReactIcon = props => {
     <IconContext.Provider
       value={{
         style: {
-          height: '2rem',
-          width: '2rem',
+          height: '1.3rem',
+          width: '1.5rem',
           color: `${finalColor}`,
         },
       }}
