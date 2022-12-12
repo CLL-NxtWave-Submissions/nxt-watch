@@ -3,8 +3,9 @@ import {IconContext} from 'react-icons'
 // Component to style passed in react icon as a prop
 const StyledReactIcon = props => {
   const {originalReactIcon, isSelected, isDarkTheme} = props
-  let finalColor = isDarkTheme ? '#ebebeb' : '#606060'
-  finalColor = isSelected && '#ff0000'
+  const finalColor = isDarkTheme
+    ? `${isSelected ? '#ff0000' : '#ebebeb'}`
+    : `${isSelected ? '#ff0000' : '#606060'}`
 
   return (
     <IconContext.Provider
