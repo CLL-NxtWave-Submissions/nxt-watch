@@ -17,10 +17,8 @@ export const MenuPopupCloseContainer = styled.div`
 `
 
 export const MenuPopupCloseButton = styled.button`
-  color: ${props => (props.isDarkTheme ? '#0f0f0f' : '#ffffff')};
   border: none;
   outline: none;
-  cursor: pointer;
   background: none;
 `
 
