@@ -6,6 +6,7 @@ export const NavLinksMenuContainer = styled.ul`
   flex-direction: column;
   justify-content: center;
   background-color: ${props => (props.isDarkTheme ? '#0f0f0f' : '#ffffff')};
+  padding-left: 0;
   list-style-type: none;
   width: 100%;
 `
