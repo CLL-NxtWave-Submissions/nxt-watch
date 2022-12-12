@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const MenuPopupBgContainer = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: ${props => (props.isDarkTheme ? '#0f0f0f' : '#ffffff')};
+  background-color: ${props => (props.isDarkTheme ? '#313131' : '#ffffff')};
   width: 100vw;
   height: 100vh;
 `
