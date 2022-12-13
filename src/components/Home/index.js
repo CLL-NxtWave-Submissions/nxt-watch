@@ -72,7 +72,7 @@ export default class Home extends Component {
   onSearchSubmit = () => {}
 
   getHomeNavLinkId = () =>
-    navLinksData.find(navLinksDataItem => navLinksDataItem.name === 'Home')
+    navLinksData.find(navLinksDataItem => navLinksDataItem.name === 'Home').id
 
   renderLoader = () => (
     <div className="loader-container" data-testid="loader">
