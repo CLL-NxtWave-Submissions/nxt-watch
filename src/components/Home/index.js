@@ -2,7 +2,7 @@ import {Component} from 'react'
 import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
 
-import {apiRequestStates} from '../common-module'
+import {apiRequestStates, navLinksData} from '../common-module'
 import Header from '../common-components/Header'
 
 import AppContext from '../context/AppContext'
@@ -70,6 +70,9 @@ export default class Home extends Component {
   }
 
   onSearchSubmit = () => {}
+
+  getHomeNavLinkId = () =>
+    navLinksData.find(navLinksDataItem => navLinksDataItem.name === 'Home')
 
   renderLoader = () => (
     <div className="loader-container" data-testid="loader">
