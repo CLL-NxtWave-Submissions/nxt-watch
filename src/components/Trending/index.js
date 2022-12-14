@@ -1,5 +1,9 @@
+import GenericRoutedComponent from '../common-components/GenericRoutedComponent'
+
 const trendingAPIUrl = 'https://apis.ccbp.in/videos/trending'
 
-const Trending = () => <h1>Trending</h1>
+const Trending = () => (
+  <GenericRoutedComponent baseAPIUrl={trendingAPIUrl} routeName="Trending" />
+)
 
 export default Trending
