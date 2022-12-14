@@ -43,7 +43,7 @@ const NavLinksMenuItem = props => {
                 </>
               ) : (
                 <>
-                  <NavLinkIconContainer insideLeftNavBar={insideLeftNavBar}>
+                  <NavLinkIconContainer>
                     <StyledReactIcon
                       originalReactIcon={icon}
                       isSelected={isItemSelected}
@@ -51,9 +51,7 @@ const NavLinksMenuItem = props => {
                     />
                   </NavLinkIconContainer>
 
-                  <NavLinkMenuItemNameContainer
-                    insideLeftNavBar={insideLeftNavBar}
-                  >
+                  <NavLinkMenuItemNameContainer>
                     <NavLinkMenuItemName
                       isDarkTheme={isDarkTheme}
                       isSelected={isItemSelected}
