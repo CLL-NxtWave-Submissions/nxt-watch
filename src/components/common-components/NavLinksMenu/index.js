@@ -26,22 +26,43 @@ const NavLinksMenuItem = props => {
         return (
           <NavLinkItem isDarkTheme={isDarkTheme} isSelected={isItemSelected}>
             <NavLink to={url}>
-              <NavLinkIconContainer insideLeftNavBar={insideLeftNavBar}>
-                <StyledReactIcon
-                  originalReactIcon={icon}
-                  isSelected={isItemSelected}
-                  isDarkTheme={isDarkTheme}
-                />
-              </NavLinkIconContainer>
+              {insideLeftNavBar ? (
+                <>
+                  <StyledReactIcon
+                    originalReactIcon={icon}
+                    isSelected={isItemSelected}
+                    isDarkTheme={isDarkTheme}
+                  />
 
-              <NavLinkMenuItemNameContainer insideLeftNavBar={insideLeftNavBar}>
-                <NavLinkMenuItemName
-                  isDarkTheme={isDarkTheme}
-                  isSelected={isItemSelected}
-                >
-                  {name}
-                </NavLinkMenuItemName>
-              </NavLinkMenuItemNameContainer>
+                  <NavLinkMenuItemName
+                    isDarkTheme={isDarkTheme}
+                    isSelected={isItemSelected}
+                  >
+                    {name}
+                  </NavLinkMenuItemName>
+                </>
+              ) : (
+                <>
+                  <NavLinkIconContainer insideLeftNavBar={insideLeftNavBar}>
+                    <StyledReactIcon
+                      originalReactIcon={icon}
+                      isSelected={isItemSelected}
+                      isDarkTheme={isDarkTheme}
+                    />
+                  </NavLinkIconContainer>
+
+                  <NavLinkMenuItemNameContainer
+                    insideLeftNavBar={insideLeftNavBar}
+                  >
+                    <NavLinkMenuItemName
+                      isDarkTheme={isDarkTheme}
+                      isSelected={isItemSelected}
+                    >
+                      {name}
+                    </NavLinkMenuItemName>
+                  </NavLinkMenuItemNameContainer>
+                </>
+              )}
             </NavLink>
           </NavLinkItem>
         )
