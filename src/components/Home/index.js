@@ -4,6 +4,7 @@ import Loader from 'react-loader-spinner'
 
 import {apiRequestStates, navLinksData} from '../common-module'
 import Header from '../common-components/Header'
+import LeftNavBar from '../common-components/LeftNavBar'
 
 import AppContext from '../context/AppContext'
 
@@ -116,6 +117,9 @@ export default class Home extends Component {
           return (
             <>
               <Header />
+              <>
+                <LeftNavBar />
+              </>
               {finalUI}
             </>
           )
