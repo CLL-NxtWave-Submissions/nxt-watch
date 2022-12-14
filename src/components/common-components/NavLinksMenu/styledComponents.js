@@ -16,7 +16,7 @@ export const NavLinkItem = styled.li`
     props.isDarkTheme
       ? `${props.isSelected ? '#424242' : 'inherit'}`
       : `${props.isSelected ? '#ebebeb' : 'inherit'}`};
-  padding: 1rem;
+  padding: 0.5rem;
 `
 
 export const NavLink = styled(Link)`
@@ -26,13 +26,14 @@ export const NavLink = styled(Link)`
 `
 
 export const NavLinkMenuItemNameContainer = styled.div`
-  display: 'flex';
+  display: flex;
   width: 50%;
-  padding: 0 0.5rem;
+  //   padding: 0.5rem;
 `
 
 export const NavLinkIconContainer = styled(NavLinkMenuItemNameContainer)`
   justify-content: flex-end;
+  padding: 0;
 `
 
 export const NavLinkMenuItemName = styled.label`
@@ -43,4 +44,5 @@ export const NavLinkMenuItemName = styled.label`
   font-family: 'Roboto';
   font-size: 1.2rem;
   font-weight: ${props => (props.isSelected ? '550' : '400')};
+  padding: 0.5rem;
 `
