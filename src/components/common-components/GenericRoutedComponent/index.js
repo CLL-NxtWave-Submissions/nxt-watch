@@ -8,8 +8,6 @@ import LeftNavBar from '../LeftNavBar'
 
 import AppContext from '../../context/AppContext'
 
-const homeAPIBaseUrl = 'https://apis.ccbp.in/videos/all?search='
-
 export default class GenericRoutedComponent extends Component {
   state = {
     apiRequestState: apiRequestStates.loading,
