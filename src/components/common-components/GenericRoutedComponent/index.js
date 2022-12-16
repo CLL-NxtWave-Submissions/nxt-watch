@@ -73,7 +73,7 @@ export default class GenericRoutedComponent extends Component {
 
   onSearchSubmit = () => {}
 
-  getHomeNavLinkId = () => {
+  getNavLinkId = () => {
     const {routeName} = this.props
 
     return navLinksData.find(
@@ -100,6 +100,8 @@ export default class GenericRoutedComponent extends Component {
   renderDataFetchFailureUI = () => <h1>Error fetching home videos data !</h1>
 
   render() {
+    const navLinkIdOfLoadedComponent = this.getNavLinkId()
+
     return (
       <AppContext.Consumer>
         {appContextData => {
