@@ -2,7 +2,7 @@ import {Component} from 'react'
 import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
 
-import {apiRequestStates, navLinksData} from '../../common-module'
+import {apiRequestStates} from '../../common-module'
 import Header from '../Header'
 import LeftNavBar from '../LeftNavBar'
 
@@ -73,14 +73,6 @@ export default class GenericRoutedComponent extends Component {
 
   onSearchSubmit = () => {}
 
-  getNavLinkId = () => {
-    const {routeName} = this.props
-
-    return navLinksData.find(
-      navLinksDataItem => navLinksDataItem.name === routeName,
-    ).id
-  }
-
   renderLoader = () => (
     <div className="loader-container" data-testid="loader">
       <Loader type="ThreeDots" color="#3b82f6" height="50" width="50" />
@@ -100,8 +92,6 @@ export default class GenericRoutedComponent extends Component {
   renderDataFetchFailureUI = () => <h1>Error fetching home videos data !</h1>
 
   render() {
-    const navLinkIdOfLoadedComponent = this.getNavLinkId()
-
     return (
       <AppContext.Consumer>
         {appContextData => {

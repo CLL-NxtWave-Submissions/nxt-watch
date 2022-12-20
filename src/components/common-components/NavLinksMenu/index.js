@@ -16,12 +16,13 @@ import NavLinkContext from '../../context/NavLinkContext'
 
 const NavLinksMenuItem = props => {
   const {itemData, insideLeftNavBar} = props
-  const {url, name, icon} = itemData
+  const {id, url, name, icon} = itemData
 
   return (
     <NavLinkContext.Consumer>
       {navLinkContextData => {
         const {activeNavLinkId} = navLinkContextData
+        const isItemSelected = id === activeNavLinkId
 
         return (
           <AppContext.Consumer>
@@ -31,20 +32,20 @@ const NavLinksMenuItem = props => {
               return (
                 <NavLinkItem
                   isDarkTheme={isDarkTheme}
-                  isSelected={activeNavLinkId}
+                  isSelected={isItemSelected}
                 >
                   <NavLink to={url}>
                     {insideLeftNavBar ? (
                       <>
                         <StyledReactIcon
                           originalReactIcon={icon}
-                          isSelected={activeNavLinkId}
+                          isSelected={isItemSelected}
                           isDarkTheme={isDarkTheme}
                         />
 
                         <NavLinkMenuItemName
                           isDarkTheme={isDarkTheme}
-                          isSelected={activeNavLinkId}
+                          isSelected={isItemSelected}
                         >
                           {name}
                         </NavLinkMenuItemName>
@@ -54,7 +55,7 @@ const NavLinksMenuItem = props => {
                         <NavLinkIconContainer>
                           <StyledReactIcon
                             originalReactIcon={icon}
-                            isSelected={activeNavLinkId}
+                            isSelected={isItemSelected}
                             isDarkTheme={isDarkTheme}
                           />
                         </NavLinkIconContainer>
@@ -62,7 +63,7 @@ const NavLinksMenuItem = props => {
                         <NavLinkMenuItemNameContainer>
                           <NavLinkMenuItemName
                             isDarkTheme={isDarkTheme}
-                            isSelected={activeNavLinkId}
+                            isSelected={isItemSelected}
                           >
                             {name}
                           </NavLinkMenuItemName>
