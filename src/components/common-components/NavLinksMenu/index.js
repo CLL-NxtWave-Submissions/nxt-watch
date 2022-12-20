@@ -12,60 +12,71 @@ import StyledReactIcon from '../StyledReactIcon'
 import {navLinksData} from '../../common-module'
 
 import AppContext from '../../context/AppContext'
+import NavLinkContext from '../../context/NavLinkContext'
 
 const NavLinksMenuItem = props => {
   const {itemData, insideLeftNavBar} = props
-  const {id, url, name, icon} = itemData
+  const {url, name, icon} = itemData
 
   return (
-    <AppContext.Consumer>
-      {appContextData => {
-        const {isDarkTheme, selectedNavItemId} = appContextData
-        const isItemSelected = id === selectedNavItemId
+    <NavLinkContext.Consumer>
+      {navLinkContextData => {
+        const {activeNavLinkId} = navLinkContextData
 
         return (
-          <NavLinkItem isDarkTheme={isDarkTheme} isSelected={isItemSelected}>
-            <NavLink to={url}>
-              {insideLeftNavBar ? (
-                <>
-                  <StyledReactIcon
-                    originalReactIcon={icon}
-                    isSelected={isItemSelected}
-                    isDarkTheme={isDarkTheme}
-                  />
+          <AppContext.Consumer>
+            {appContextData => {
+              const {isDarkTheme} = appContextData
 
-                  <NavLinkMenuItemName
-                    isDarkTheme={isDarkTheme}
-                    isSelected={isItemSelected}
-                  >
-                    {name}
-                  </NavLinkMenuItemName>
-                </>
-              ) : (
-                <>
-                  <NavLinkIconContainer>
-                    <StyledReactIcon
-                      originalReactIcon={icon}
-                      isSelected={isItemSelected}
-                      isDarkTheme={isDarkTheme}
-                    />
-                  </NavLinkIconContainer>
+              return (
+                <NavLinkItem
+                  isDarkTheme={isDarkTheme}
+                  isSelected={activeNavLinkId}
+                >
+                  <NavLink to={url}>
+                    {insideLeftNavBar ? (
+                      <>
+                        <StyledReactIcon
+                          originalReactIcon={icon}
+                          isSelected={activeNavLinkId}
+                          isDarkTheme={isDarkTheme}
+                        />
 
-                  <NavLinkMenuItemNameContainer>
-                    <NavLinkMenuItemName
-                      isDarkTheme={isDarkTheme}
-                      isSelected={isItemSelected}
-                    >
-                      {name}
-                    </NavLinkMenuItemName>
-                  </NavLinkMenuItemNameContainer>
-                </>
-              )}
-            </NavLink>
-          </NavLinkItem>
+                        <NavLinkMenuItemName
+                          isDarkTheme={isDarkTheme}
+                          isSelected={activeNavLinkId}
+                        >
+                          {name}
+                        </NavLinkMenuItemName>
+                      </>
+                    ) : (
+                      <>
+                        <NavLinkIconContainer>
+                          <StyledReactIcon
+                            originalReactIcon={icon}
+                            isSelected={activeNavLinkId}
+                            isDarkTheme={isDarkTheme}
+                          />
+                        </NavLinkIconContainer>
+
+                        <NavLinkMenuItemNameContainer>
+                          <NavLinkMenuItemName
+                            isDarkTheme={isDarkTheme}
+                            isSelected={activeNavLinkId}
+                          >
+                            {name}
+                          </NavLinkMenuItemName>
+                        </NavLinkMenuItemNameContainer>
+                      </>
+                    )}
+                  </NavLink>
+                </NavLinkItem>
+              )
+            }}
+          </AppContext.Consumer>
         )
       }}
-    </AppContext.Consumer>
+    </NavLinkContext.Consumer>
   )
 }
 
